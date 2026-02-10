@@ -34,7 +34,7 @@ const Navbar = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border"
+        className="fixed max-w-[1650px]  mx-auto px-4 lg:px-[138px]  py-1 top-0 left-0 right-0 z-50 bg-background border-b border-border"
       >
         <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:h-18">
           <Link

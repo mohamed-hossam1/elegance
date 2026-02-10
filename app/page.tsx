@@ -1,4 +1,5 @@
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/landing/hero-section/HeroSection";
+import ProjectsSection from "@/components/landing/projects-section/ProjectsSection";
 import Image from "next/image";
 
 export default function Home() {
@@ -6,9 +7,9 @@ export default function Home() {
     <>
       <main className="min-h-screen bg-background">
         <HeroSection />
+        <ProjectsSection />
         
         {/* <Navbar />
-        <ProjectsGrid />
         <HowItWorks />
         <TestimonialsSection />
         <FAQSection />
