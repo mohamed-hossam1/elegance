@@ -1,5 +1,5 @@
 export const ROUTES = {
-  LABDING: "/",
+  LABDING_PAGE: "/",
   LOGIN: "/login",
   REAL_ESTATE: "/real-estate",
   CARS: "/cars",
