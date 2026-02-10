@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/providers/theme-provider";
-import ScrollYProgress from "@/components/ui/ScrollYProgress";
 import Navbar from "@/components/navbar/Navbar";
 
 export const metadata: Metadata = {
@@ -24,7 +23,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen bg-background">
-            {/* <ScrollYProgress></ScrollYProgress> */}
             <Navbar></Navbar>
 
             {children}
