@@ -74,7 +74,7 @@ const ProjectsSection = () => {
         className="mb-12 lg:mb-16"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={stagger}
       >
         <motion.div variants={fadeUp} className="relative inline-block">
@@ -107,7 +107,7 @@ const ProjectsSection = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.5 }}
         variants={{
           hidden: { opacity: 0, y: 30 },
           visible: {
