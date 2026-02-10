@@ -1,6 +1,6 @@
 import HeroSection from "@/components/landing/hero-section/HeroSection";
+import HowWorks from "@/components/landing/how-works-section/HowWorks";
 import ProjectsSection from "@/components/landing/projects-section/ProjectsSection";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <main className="min-h-screen bg-background">
         <HeroSection />
         <ProjectsSection />
-        
+        <HowWorks />
         {/* <Navbar />
         <HowItWorks />
         <TestimonialsSection />
