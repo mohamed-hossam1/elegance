@@ -7,6 +7,8 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-text-secondary: var(--text-secondary);
+  --color-text: var(--text);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
