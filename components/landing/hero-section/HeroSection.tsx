@@ -76,17 +76,17 @@ const HeroSection = () => {
 
             <motion.div
               variants={fadeUp}
-              className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm"
+              className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm"
             >
               <Sparkles className="w-4 h-4 text-primary" />
-              <p className="font-semibold uppercase tracking-[0.2em] text-primary text-xs">
+              <p className="font-semibold uppercase tracking-[0.2em] text-primary text-[9px] md:text-xs">
                 Premium Real Estate & Luxury Cars
               </p>
             </motion.div>
 
             <motion.h1
               variants={fadeUp}
-              className="font-display text-4xl font-bold leading-[1.15] text-foreground md:text-5xl lg:text-6xl mb-6"
+              className="font-display text-[34px] font-bold leading-[1.15] text-foreground md:text-5xl lg:text-6xl mb-6"
             >
               WHERE
               <span className="text-primary md:ml-3 relative inline-block">
@@ -105,7 +105,7 @@ const HeroSection = () => {
 
             <motion.p
               variants={fadeUp}
-              className="max-w-lg text-text-secondary leading-relaxed text-muted-foreground md:text-lg"
+              className="max-w-lg text-text-secondary leading-relaxed text-muted-foreground text-[14px] md:text-lg"
             >
               We don't just sell properties and cars — we deliver life-changing
               decisions with one move. Expert guidance, transparent deals, and

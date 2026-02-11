@@ -57,12 +57,12 @@ export default function StepCard({
 
         <div className="flex-1 relative z-10">
           <div className="flex items-center gap-3 mb-2">
-            <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+            <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
               {title}
             </h3>
             <CheckCircle2 className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0" />
           </div>
-          <p className="text-[15px] leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+          <p className="text-[14px] md:text-[15px] leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors duration-300">
             {description}
           </p>
 

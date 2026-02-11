@@ -79,14 +79,14 @@ const ProjectsSection = () => {
       >
         <motion.div variants={fadeUp} className="relative inline-block">
           <div className="absolute -top-2 -left-2 w-12 h-12 bg-primary/20 blur-xl rounded-full" />
-          <h2 className="text-3xl lg:text-5xl font-bold mb-3 relative">
+          <h2 className="text-[27px] lg:text-5xl font-bold mb-3 relative">
             Our <span className="text-primary">Exclusive</span> Projects
           </h2>
         </motion.div>
 
         <motion.p
           variants={fadeUp}
-          className="text-text-secondary text-lg max-w-2xl"
+          className="text-text-secondary md:text-lg max-w-2xl"
         >
           Discover premium properties and luxury vehicles curated for the most
           discerning clients

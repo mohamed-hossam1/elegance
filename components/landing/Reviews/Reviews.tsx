@@ -134,7 +134,7 @@ export default function Reviews() {
       >
         <motion.h2
           variants={fadeUp}
-          className="text-3xl lg:text-5xl font-bold mb-4 relative inline-block"
+          className="text-[27px] lg:text-5xl font-bold mb-4 relative inline-block"
         >
           What Our <span className="text-primary">Clients</span> Say
           <motion.div
@@ -148,7 +148,7 @@ export default function Reviews() {
 
         <motion.p
           variants={fadeUp}
-          className="text-lg text-muted-foreground max-w-2xl mt-6"
+          className="md:text-lg text-muted-foreground max-w-2xl mt-6"
         >
           Don't just take our word for it. Hear from clients who've experienced
           <span className="text-primary font-semibold">
