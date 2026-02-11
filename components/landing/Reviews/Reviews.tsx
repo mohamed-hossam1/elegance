@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import * as motion from "motion/react-client";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import ReviewCard from "./ReviewCard";
@@ -90,15 +90,27 @@ export default function Reviews() {
     [],
   );
 
-  const ITEMS_PER_VIEW = 3;
+  const [itemsPerView, setItemsPerView] = useState(3);
 
-  const totalPages = Math.max(1, reviews.length - ITEMS_PER_VIEW + 1);
+  useEffect(() => {
+    const updateItems = () => {
+      if (window.innerWidth < 768) setItemsPerView(1); // mobile
+      else if (window.innerWidth < 1024) setItemsPerView(2); // tablet
+      else setItemsPerView(3); // desktop
+    };
+
+    updateItems();
+    window.addEventListener("resize", updateItems);
+    return () => window.removeEventListener("resize", updateItems);
+  }, []);
+
+  const totalPages = Math.max(1, reviews.length - itemsPerView + 1);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const safeIndex = Math.min(currentIndex, totalPages - 1);
 
-  const visibleReviews = reviews.slice(safeIndex, safeIndex + ITEMS_PER_VIEW);
+  const visibleReviews = reviews.slice(safeIndex, safeIndex + itemsPerView);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % totalPages);
@@ -117,10 +129,9 @@ export default function Reviews() {
         className="mb-16"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={stagger}
       >
-
         <motion.h2
           variants={fadeUp}
           className="text-3xl lg:text-5xl font-bold mb-4 relative inline-block"
@@ -130,7 +141,7 @@ export default function Reviews() {
             className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.8 }}
           />
         </motion.h2>
@@ -149,7 +160,15 @@ export default function Reviews() {
       </motion.div>
 
       <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div
+          className={`grid gap-6 mb-16 ${
+            itemsPerView === 1
+              ? "grid-cols-1"
+              : itemsPerView === 2
+                ? "grid-cols-1 md:grid-cols-2"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          }`}
+        >
           {visibleReviews.map((review, index) => (
             <motion.div
               key={`${review.name}-${safeIndex}-${index}`}

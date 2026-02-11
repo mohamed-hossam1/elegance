@@ -89,7 +89,7 @@ const HeroSection = () => {
               className="font-display text-4xl font-bold leading-[1.15] text-foreground md:text-5xl lg:text-6xl mb-6"
             >
               WHERE
-              <span className="text-primary ml-3 relative inline-block">
+              <span className="text-primary md:ml-3 relative inline-block">
                 {" "}
                 ELEGANCE
                 <motion.div
@@ -149,7 +149,7 @@ const HeroSection = () => {
               </Button>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-10 relative">
+            <motion.div variants={fadeUp} className="mt-10  relative">
               <div className="h-[1px] w-full bg-gradient-to-r from-primary via-primary/50 to-transparent" />
               <motion.div
                 className="absolute top-0 left-0 h-[3px] w-20 bg-primary blur-sm"
@@ -172,7 +172,7 @@ const HeroSection = () => {
             variants={stagger}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-4 relative">
+            <div className="grid grid-cols-2 gap-4  hidden md:block relative">
               {images.map((image, idx) => (
                 <motion.div
                   key={idx}

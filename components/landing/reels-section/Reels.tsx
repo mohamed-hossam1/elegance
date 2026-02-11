@@ -80,7 +80,7 @@ export default function Reels() {
         className="mb-16"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={stagger}
       >
         <motion.h2
@@ -92,7 +92,7 @@ export default function Reels() {
             className="absolute -bottom-3 left-0 w-full h-1.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.8 }}
           />
         </motion.h2>
@@ -114,7 +114,7 @@ export default function Reels() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <ReelCard reel={reels[0]} tall />
@@ -124,15 +124,16 @@ export default function Reels() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <ReelCard reel={reels[1]} />
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
             <ReelCard reel={reels[2]} />
@@ -142,7 +143,7 @@ export default function Reels() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <ReelCard reel={reels[3]} tall />
@@ -152,15 +153,16 @@ export default function Reels() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.35 }}
           >
             <ReelCard reel={reels[4]} />
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <ReelCard reel={reels[5]} />
@@ -170,7 +172,7 @@ export default function Reels() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.45 }}
         >
           <ReelCard reel={reels[6]} tall />
@@ -182,16 +184,18 @@ export default function Reels() {
 
 function ReelCard({
   reel,
-  tall = false,
+  tall = true,
 }: {
   reel: { id: number; src: string; duration: string };
   tall?: boolean;
 }) {
   return (
     <div
-      className={`${
-        tall ? "h-[408px] w-[272px]" : "h-[272px] w-[238px]"
-      } rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 hover:-translate-y-2`}
+      className={`
+        rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 hover:-translate-y-2
+        h-[408px] w-[272px]
+        lg:${tall ? "h-[408px] w-[272px]" : "h-[272px] w-[238px]"}
+      `}
     >
       <div className="relative w-full h-full overflow-hidden">
         <Image
@@ -203,9 +207,7 @@ function ReelCard({
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500" />
-
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
       </div>
 

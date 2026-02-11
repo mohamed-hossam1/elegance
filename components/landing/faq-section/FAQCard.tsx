@@ -24,7 +24,7 @@ export default function FAQCard({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       variants={{
         hidden: { opacity: 0, x: -40 },
         visible: {
@@ -85,7 +85,7 @@ export default function FAQCard({
           </motion.div>
         </button>
 
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={true}>
           {isOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
