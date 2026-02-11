@@ -1,30 +1,14 @@
-import * as motion from "motion/react-client";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/constants/routes";
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
-const stagger = {
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
+import {
+  AnimatedSection,
+  AnimatedUnderline,
+  StaggerContainer,
+  TapScale,
+} from "@/lib/animations/components";
 
 const ProjectsSection = () => {
   const projects = [
@@ -70,33 +54,21 @@ const ProjectsSection = () => {
       id="projects"
       className="max-w-[1650px] mx-auto px-4 lg:px-[138px]  lg:py-24"
     >
-      <motion.div
-        className="mb-12 lg:mb-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={stagger}
-      >
-        <motion.div variants={fadeUp} className="relative inline-block">
-          <div className="absolute -top-2 -left-2 w-12 h-12 bg-primary/20 blur-xl rounded-full" />
+      <StaggerContainer className="mb-12 lg:mb-16">
+        <AnimatedSection className="relative inline-block">
           <h2 className="text-[27px] lg:text-5xl font-bold mb-3 relative">
             Our <span className="text-primary">Exclusive</span> Projects
           </h2>
-        </motion.div>
+          <AnimatedUnderline />
+        </AnimatedSection>
 
-        <motion.p
-          variants={fadeUp}
-          className="text-text-secondary md:text-lg max-w-2xl"
-        >
-          Discover premium properties and luxury vehicles curated for the most
-          discerning clients
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp}
-          className="mt-6 h-[1px] w-24 bg-gradient-to-r from-primary to-transparent"
-        />
-      </motion.div>
+        <AnimatedSection delay={0.1}>
+          <p className="text-text-secondary md:text-lg mt-6 max-w-2xl">
+            Discover premium properties and luxury vehicles curated for the most
+            discerning clients
+          </p>
+        </AnimatedSection>
+      </StaggerContainer>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
         {projects.map((project, idx) => (
@@ -104,36 +76,22 @@ const ProjectsSection = () => {
         ))}
       </div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={{
-          hidden: { opacity: 0, y: 30 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              delay: 0.3,
-              duration: 0.6,
-            },
-          },
-        }}
-        className="mt-12 lg:mt-16 text-center"
-      >
-        <Button
-          className="primary-gradient group px-8 py-6 text-base relative overflow-hidden"
-          size="lg"
-          asChild
-        >
-          <Link href={ROUTES.REAL_ESTATE} className="gap-3">
-            <span className="relative z-10">View All Projects</span>
-            <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+      <AnimatedSection className="mt-12 lg:mt-16 text-center">
+        <TapScale>
+          <Button
+            className="primary-gradient group px-8 py-6 text-base relative overflow-hidden"
+            size="lg"
+            asChild
+          >
+            <Link href={ROUTES.REAL_ESTATE} className="gap-3">
+              <span className="relative z-10">View All Projects</span>
+              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
 
-            <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-          </Link>
-        </Button>
-      </motion.div>
+              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            </Link>
+          </Button>
+        </TapScale>
+      </AnimatedSection>
     </section>
   );
 };

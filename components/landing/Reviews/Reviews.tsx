@@ -1,33 +1,17 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import * as motion from "motion/react-client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import ReviewCard from "./ReviewCard";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
-const stagger = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
+import {
+  AnimatedSection,
+  AnimatedUnderline,
+  SlideFromRight,
+  StaggerContainer,
+  TapScale,
+} from "@/lib/animations/components";
 
 export default function Reviews() {
   const reviews = useMemo(
@@ -94,8 +78,10 @@ export default function Reviews() {
 
   useEffect(() => {
     const updateItems = () => {
-      if (window.innerWidth < 768) setItemsPerView(1); // mobile
-      else if (window.innerWidth < 1024) setItemsPerView(2); // tablet
+      if (window.innerWidth < 768)
+        setItemsPerView(1); // mobile
+      else if (window.innerWidth < 1024)
+        setItemsPerView(2); // tablet
       else setItemsPerView(3); // desktop
     };
 
@@ -124,40 +110,26 @@ export default function Reviews() {
     <section className="relative max-w-[1650px] mx-auto px-4 lg:px-[138px] py-16 lg:py-24 overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 blur-3xl rounded-full -z-10" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary/3 blur-3xl rounded-full -z-10" />
+      <StaggerContainer className="mb-12 lg:mb-16">
+        <AnimatedSection className="relative inline-block">
+          <h2 className="text-[27px] lg:text-5xl font-bold mb-3 relative">
+            What Our <span className="text-primary">Clients</span> Say
+          </h2>
+          <AnimatedUnderline />
+        </AnimatedSection>
 
-      <motion.div
-        className="mb-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={stagger}
-      >
-        <motion.h2
-          variants={fadeUp}
-          className="text-[27px] lg:text-5xl font-bold mb-4 relative inline-block"
-        >
-          What Our <span className="text-primary">Clients</span> Say
-          <motion.div
-            className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full origin-left"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          />
-        </motion.h2>
-
-        <motion.p
-          variants={fadeUp}
-          className="md:text-lg text-muted-foreground max-w-2xl mt-6"
-        >
-          Don't just take our word for it. Hear from clients who've experienced
-          <span className="text-primary font-semibold">
-            {" "}
-            the Elegance difference
-          </span>
-          —transforming dreams into reality, one key at a time.
-        </motion.p>
-      </motion.div>
+        <AnimatedSection delay={0.1}>
+          <p className="text-text-secondary md:text-lg mt-6 max-w-2xl">
+            Don't just take our word for it. Hear from clients who've
+            experienced
+            <span className="text-primary font-semibold">
+              {" "}
+              the Elegance difference
+            </span>
+            —transforming dreams into reality, one key at a time.
+          </p>
+        </AnimatedSection>
+      </StaggerContainer>
 
       <div className="relative">
         <div
@@ -170,27 +142,24 @@ export default function Reviews() {
           }`}
         >
           {visibleReviews.map((review, index) => (
-            <motion.div
-              key={`${review.name}-${safeIndex}-${index}`}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.45 }}
-            >
+            <SlideFromRight key={`${review.name}-${safeIndex}-${index}`}>
               <ReviewCard {...review} delay={index * 0.1} />
-            </motion.div>
+            </SlideFromRight>
           ))}
         </div>
 
         <div className="flex justify-center items-center gap-4 mt-12">
-          <Button
-            onClick={handlePrev}
-            variant="outline"
-            size="icon"
-            className="rounded-full w-12 h-12 hover:bg-primary hover:text-text transition-colors"
-            aria-label="Previous reviews"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </Button>
+          <TapScale>
+            <Button
+              onClick={handlePrev}
+              variant="outline"
+              size="icon"
+              className="rounded-full w-12 h-12 hover:bg-primary hover:text-text transition-colors cursor-pointer"
+              aria-label="Previous reviews"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+          </TapScale>
 
           <div className="flex gap-2">
             {Array.from({ length: totalPages }).map((_, index) => (
@@ -207,15 +176,17 @@ export default function Reviews() {
             ))}
           </div>
 
-          <Button
-            onClick={handleNext}
-            variant="outline"
-            size="icon"
-            className="rounded-full w-12 h-12 hover:bg-primary hover:text-text transition-colors"
-            aria-label="Next reviews"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </Button>
+          <TapScale>
+            <Button
+              onClick={handleNext}
+              variant="outline"
+              size="icon"
+              className="rounded-full w-12 h-12 hover:bg-primary hover:text-text transition-colors cursor-pointer"
+              aria-label="Next reviews"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </TapScale>
         </div>
       </div>
     </section>

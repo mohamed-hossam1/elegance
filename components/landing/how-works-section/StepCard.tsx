@@ -1,6 +1,5 @@
+import { HoverScale, SlideFromLeft } from "@/lib/animations/components";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import * as motion from "motion/react-client";
-
 
 interface StepCardProps {
   icon: React.ComponentType<{ className?: string }>;
@@ -18,25 +17,7 @@ export default function StepCard({
   delay,
 }: StepCardProps) {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={{
-        hidden: { opacity: 0, x: -40, scale: 0.95 },
-        visible: {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          transition: {
-            duration: 0.7,
-            delay: delay,
-            ease: [0.22, 1, 0.36, 1],
-          },
-        },
-      }}
-      className="group relative"
-    >
+    <SlideFromLeft delay={delay} className="group relative">
       <div className="flex items-start gap-6 p-7 rounded-2xl border border-primary/30 bg-card/50 backdrop-blur-sm relative overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -46,14 +27,11 @@ export default function StepCard({
           {number}
         </div>
 
-        <motion.div
-          className="relative flex-shrink-0 w-16 h-16 rounded-xl border-2 border-primary/50 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-500"
-          whileHover={{ scale: 1.1, rotate: 5 }}
-        >
+        <HoverScale className="relative flex-shrink-0 w-16 h-16 rounded-xl border-2 border-primary/50 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-500">
           <Icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" />
 
           <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
-        </motion.div>
+        </HoverScale>
 
         <div className="flex-1 relative z-10">
           <div className="flex items-center gap-3 mb-2">
@@ -77,6 +55,6 @@ export default function StepCard({
       {number < 4 && (
         <div className="hidden lg:block absolute left-8 top-full w-[2px] h-12 bg-gradient-to-b from-primary/50 to-transparent" />
       )}
-    </motion.div>
+    </SlideFromLeft>
   );
 }
