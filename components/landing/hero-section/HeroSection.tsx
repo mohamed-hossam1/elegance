@@ -172,7 +172,7 @@ const HeroSection = () => {
             variants={stagger}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-4  hidden md:block relative">
+            <div className="grid grid-cols-2 gap-4  hidden md:grid relative">
               {images.map((image, idx) => (
                 <motion.div
                   key={idx}
