@@ -1,5 +1,6 @@
+import { SlideFromLeft } from "@/lib/animations/components";
 import { AnimatePresence } from "framer-motion";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import * as motion from "motion/react-client";
 
 interface FAQItem {
@@ -21,26 +22,9 @@ export default function FAQCard({
   onToggle,
 }: FAQCardProps) {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={{
-        hidden: { opacity: 0, x: -40 },
-        visible: {
-          opacity: 1,
-          x: 0,
-          transition: {
-            duration: 0.6,
-            delay: index * 0.1,
-            ease: [0.22, 1, 0.36, 1],
-          },
-        },
-      }}
-      className="group relative"
-    >
+    <SlideFromLeft delay={index * 0.1} className="group relative ">
       <div
-        className={`rounded-2xl border overflow-hidden transition-all duration-500 ${
+        className={`rounded-2xl border overflow-hidden transition-all duration-500  ${
           isOpen
             ? "border-primary bg-gradient-to-br from-card to-primary/5 shadow-xl shadow-primary/10"
             : "border-primary/30 bg-card/50 hover:border-primary/50"
@@ -50,7 +34,7 @@ export default function FAQCard({
 
         <button
           onClick={onToggle}
-          className="w-full flex items-center justify-between gap-4 p-6 lg:p-8 text-left transition-colors duration-300 relative z-10"
+          className="w-full cursor-pointer flex items-center justify-between gap-4 p-6 lg:p-8 text-left transition-colors duration-300 relative z-10"
         >
           <div className="absolute left-6 top-4 text-sm font-bold text-primary/30">
             {String(index + 1).padStart(2, "0")}
@@ -118,7 +102,6 @@ export default function FAQCard({
                 >
                   {faq.answer}
                 </motion.p>
-
               </div>
             </motion.div>
           )}
@@ -128,6 +111,6 @@ export default function FAQCard({
           <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
         )}
       </div>
-    </motion.div>
+    </SlideFromLeft>
   );
 }

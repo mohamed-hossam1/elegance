@@ -1,8 +1,8 @@
-import * as motion from "motion/react-client";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import Link from "next/link";
 import Image from "next/image";
+import { ScaleIn } from "@/lib/animations/components";
 
 const ProjectCard = ({
   href,
@@ -20,25 +20,7 @@ const ProjectCard = ({
   delay?: number;
 }) => {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={{
-        hidden: { opacity: 0, y: 60, scale: 0.95 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          transition: {
-            duration: 0.8,
-            delay: delay,
-            ease: [0.22, 1, 0.36, 1],
-          },
-        },
-      }}
-      className={className}
-    >
+    <ScaleIn delay={delay} className={className}>
       <Link
         href={href}
         className="block h-[253px] rounded-[18px] overflow-hidden relative group"
@@ -68,10 +50,10 @@ const ProjectCard = ({
         <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-all duration-500 group-hover:translate-y-[-8px]">
           <div className="flex items-end justify-between">
             <div>
-              <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors duration-300">
                 {title}
               </h3>
-              <p className="text-white/90 text-sm group-hover:text-white transition-colors duration-300">
+              <p className="text-white/90 text-[12px] group-hover:text-white transition-colors duration-300">
                 {activities}
               </p>
             </div>
@@ -84,7 +66,7 @@ const ProjectCard = ({
           <div className="mt-4 h-[2px] bg-gradient-to-r from-primary/0 via-primary to-primary/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
         </div>
       </Link>
-    </motion.div>
+    </ScaleIn>
   );
 };
 

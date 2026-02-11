@@ -1,30 +1,14 @@
 "use client";
 
-import * as motion from "motion/react-client";
-import { Sparkles, HelpCircle } from "lucide-react";
 import { useState } from "react";
 import FAQCard from "./FAQCard";
+import {
+  AnimatedSection,
+  AnimatedUnderline,
+  StaggerContainer,
+} from "@/lib/animations/components";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
 
-const stagger = {
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
 interface FAQItem {
   question: string;
   answer: string;
@@ -65,37 +49,27 @@ export default function FAQ() {
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 blur-3xl rounded-full -z-10 " />
       <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-primary/3 blur-3xl rounded-full -z-10" />
 
-      <motion.div
-        className="mb-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={stagger}
-      >
-        <motion.h2
-          variants={fadeUp}
-          className="text-[27px] lg:text-5xl font-bold mb-4 relative inline-block"
-        >
-          Frequently Asked <span className="text-primary">Questions</span>
-          <motion.div
-            className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          />
-        </motion.h2>
+      <StaggerContainer className="mb-12 lg:mb-16">
+        <AnimatedSection className="relative inline-block">
+          <h2 className="text-[27px] lg:text-5xl font-bold mb-3 relative">
+            Frequently Asked <span className="text-primary">Questions</span>
+          </h2>
+          <AnimatedUnderline />
+        </AnimatedSection>
 
-        <motion.p
-          variants={fadeUp}
-          className="md:text-lg text-muted-foreground max-w-2xl mt-6"
-        >
-          Got questions? We've got answers. Find everything you need to know
-          about our
-          <span className="text-primary font-semibold"> premium services</span>,
-          process, and what makes us different.
-        </motion.p>
-      </motion.div>
+        <AnimatedSection delay={0.1}>
+          <p className="text-text-secondary md:text-lg mt-6 max-w-2xl">
+            Got questions? We've got answers. Find everything you need to know
+            about our
+            <span className="text-primary font-semibold">
+              {" "}
+              premium services
+            </span>
+            , process, and what makes us different.
+          </p>
+        </AnimatedSection>
+      </StaggerContainer>
+
 
       <div className="flex flex-col gap-4 max-w-4xl mx-auto overflow-hidden">
         {faqs.map((faq, index) => (

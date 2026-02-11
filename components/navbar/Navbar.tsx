@@ -15,8 +15,13 @@ import { ModeToggle } from "./ModeToggle";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { ROUTES } from "@/constants/routes";
-import logo from "../../public/logo.png";
+import logo from "@/public/logo.png";
 import Image from "next/image";
+import {
+  AnimatedFromTop,
+  HoverScale,
+  TapScale,
+} from "@/lib/animations/components";
 
 const navLinks = [
   { label: "Home", href: ROUTES.LABDING_PAGE },
@@ -31,39 +36,27 @@ const Navbar = () => {
 
   return (
     <header className="relative">
-      <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ 
-          duration: 0.6, 
-          ease: [0.22, 1, 0.36, 1] 
-        }}
-        className="fixed max-w-[1650px] mx-auto px-4 lg:px-[138px] py-1 top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50"
-      >
+      <AnimatedFromTop className="fixed max-w-[1650px] mx-auto px-4 lg:px-[138px] py-1 top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-        
+
         <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:h-18 relative z-10">
           <Link
             href={ROUTES.LABDING_PAGE}
             className="flex items-center gap-2.5 group relative"
           >
-            <motion.div 
-              className="relative flex h-14 w-14 items-center justify-center rounded-xl gold-gradient overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Image 
-                src={logo} 
-                alt="Elegance Logo" 
-                width={56} 
-                height={56}
-                className="relative z-10 transition-transform duration-500  "
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-xl transition-all duration-500" />
-            </motion.div>
+            <HoverScale className="relative flex h-14 w-14 items-center justify-center rounded-xl gold-gradient overflow-hidden">
+              <TapScale >
+                <Image
+                  src={logo}
+                  alt="Elegance Logo"
+                  width={56}
+                  height={56}
+                  className="relative z-10 transition-transform duration-500  "
+                />
+              </TapScale>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-xl transition-all duration-500" />{" "}
+            </HoverScale>
 
             <motion.span
               initial={{ opacity: 0, x: -10 }}
@@ -99,7 +92,11 @@ const Navbar = () => {
                     <motion.div
                       layoutId="activeLink"
                       className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-primary"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
                     />
                   )}
 
@@ -122,10 +119,10 @@ const Navbar = () => {
 
           <div className="hidden items-center gap-3 md:flex">
             <ModeToggle />
-            
-            <Button 
-              className="primary-gradient group relative overflow-hidden shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300" 
-              size="sm" 
+
+            <Button
+              className="primary-gradient group relative overflow-hidden shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
+              size="sm"
               asChild
             >
               <Link href="/real-estate" className="py-5 px-6 relative z-10">
@@ -133,7 +130,7 @@ const Navbar = () => {
                   <Sparkles className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
                   Contact Us
                 </span>
-                
+
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </Link>
             </Button>
@@ -141,14 +138,10 @@ const Navbar = () => {
 
           <div className="flex items-center z-50 gap-2 md:hidden">
             <ModeToggle />
-            
+
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon"
-                  className="relative group"
-                >
+                <Button variant="ghost" size="icon" className="relative group">
                   <AnimatePresence mode="wait">
                     {!open ? (
                       <motion.div
@@ -186,7 +179,7 @@ const Navbar = () => {
                   <SheetTitle>Navigation Menu</SheetTitle>
                 </SheetHeader>
 
-                <motion.div 
+                <motion.div
                   className="relative mt-8 flex flex-col gap-8 p-6"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -201,7 +194,9 @@ const Navbar = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg">Elegance</h3>
-                      <p className="text-xs text-muted-foreground">Premium Selection</p>
+                      <p className="text-xs text-muted-foreground">
+                        Premium Selection
+                      </p>
                     </div>
                   </div>
 
@@ -229,7 +224,7 @@ const Navbar = () => {
                             <span className="text-lg font-medium">
                               {link.label}
                             </span>
-                            
+
                             {isActive ? (
                               <motion.div
                                 initial={{ scale: 0 }}
@@ -263,10 +258,13 @@ const Navbar = () => {
                       asChild
                       onClick={() => setOpen(false)}
                     >
-                      <Link href={ROUTES.REAL_ESTATE} className="flex items-center justify-center gap-2">
+                      <Link
+                        href={ROUTES.REAL_ESTATE}
+                        className="flex items-center justify-center gap-2"
+                      >
                         <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                         <span className="relative z-10">Contact Us</span>
-                        
+
                         <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
                       </Link>
                     </Button>
@@ -287,7 +285,7 @@ const Navbar = () => {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      </motion.nav>
+      </AnimatedFromTop>
     </header>
   );
 };
