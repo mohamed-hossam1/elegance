@@ -23,7 +23,7 @@ const ProjectCard = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       variants={{
         hidden: { opacity: 0, y: 60, scale: 0.95 },
         visible: {

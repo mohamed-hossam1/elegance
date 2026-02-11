@@ -69,7 +69,7 @@ export default function FAQ() {
         className="mb-16"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={stagger}
       >
         <motion.h2
@@ -81,7 +81,7 @@ export default function FAQ() {
             className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.8 }}
           />
         </motion.h2>
