@@ -24,7 +24,7 @@ export default function FAQCard({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.3 }}
       variants={{
         hidden: { opacity: 0, x: -40 },
         visible: {
