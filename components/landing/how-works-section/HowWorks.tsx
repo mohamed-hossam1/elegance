@@ -92,7 +92,7 @@ export default function HowWorks() {
         className="mb-16"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         variants={stagger}
       >
 
@@ -105,7 +105,7 @@ export default function HowWorks() {
             className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.5, duration: 0.8 }}
           />
         </motion.h2>
@@ -132,7 +132,7 @@ export default function HowWorks() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         variants={{
           hidden: { opacity: 0, y: 40 },
           visible: {
@@ -216,7 +216,7 @@ export default function HowWorks() {
               className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: 0.8 }}
             >
               <div className="flex items-center gap-2">

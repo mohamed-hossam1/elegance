@@ -80,7 +80,7 @@ export default function Reels() {
         className="mb-16"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         variants={stagger}
       >
         <motion.h2
@@ -92,7 +92,7 @@ export default function Reels() {
             className="absolute -bottom-3 left-0 w-full h-1.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.5, duration: 0.8 }}
           />
         </motion.h2>
@@ -114,7 +114,7 @@ export default function Reels() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <ReelCard reel={reels[0]} tall />
@@ -124,7 +124,7 @@ export default function Reels() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <ReelCard reel={reels[1]} />
@@ -132,7 +132,7 @@ export default function Reels() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
             <ReelCard reel={reels[2]} />
@@ -142,7 +142,7 @@ export default function Reels() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <ReelCard reel={reels[3]} tall />
@@ -152,7 +152,7 @@ export default function Reels() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.35 }}
           >
             <ReelCard reel={reels[4]} />
@@ -160,7 +160,7 @@ export default function Reels() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <ReelCard reel={reels[5]} />
@@ -170,7 +170,7 @@ export default function Reels() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.45 }}
         >
           <ReelCard reel={reels[6]} tall />

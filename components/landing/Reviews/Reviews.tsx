@@ -117,7 +117,7 @@ export default function Reviews() {
         className="mb-16"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         variants={stagger}
       >
 
@@ -130,7 +130,7 @@ export default function Reviews() {
             className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.5, duration: 0.8 }}
           />
         </motion.h2>

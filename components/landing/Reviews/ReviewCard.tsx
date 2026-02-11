@@ -25,7 +25,7 @@ export default function ReviewCard({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.3 }}
       variants={{
         hidden: { opacity: 0, y: 60, scale: 0.95 },
         visible: {
@@ -93,7 +93,7 @@ export default function ReviewCard({
               key={index}
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{
                 delay: delay + index * 0.1,
                 duration: 0.3,
