@@ -85,7 +85,7 @@ export default function Reels() {
       >
         <motion.h2
           variants={fadeUp}
-          className="text-4xl lg:text-6xl font-bold mb-6 relative inline-block"
+          className="text-[27px] lg:text-6xl font-bold mb-6 relative inline-block"
         >
           Featured <span className="text-primary">Reels</span>
           <motion.div
@@ -99,7 +99,7 @@ export default function Reels() {
 
         <motion.p
           variants={fadeUp}
-          className="text-lg lg:text-xl text-muted-foreground max-w-3xl mt-8 leading-relaxed"
+          className="md:text-lg lg:text-xl text-muted-foreground max-w-3xl mt-8 leading-relaxed"
         >
           Experience luxury through our lens.
           <span className="text-primary font-semibold">

@@ -74,7 +74,7 @@ export default function FAQ() {
       >
         <motion.h2
           variants={fadeUp}
-          className="text-3xl lg:text-5xl font-bold mb-4 relative inline-block"
+          className="text-[27px] lg:text-5xl font-bold mb-4 relative inline-block"
         >
           Frequently Asked <span className="text-primary">Questions</span>
           <motion.div
@@ -88,7 +88,7 @@ export default function FAQ() {
 
         <motion.p
           variants={fadeUp}
-          className="text-lg text-muted-foreground max-w-2xl mt-6"
+          className="md:text-lg text-muted-foreground max-w-2xl mt-6"
         >
           Got questions? We've got answers. Find everything you need to know
           about our

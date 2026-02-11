@@ -98,7 +98,7 @@ export default function HowWorks() {
 
         <motion.h2
           variants={fadeUp}
-          className="text-3xl lg:text-5xl font-bold mb-4 relative inline-block"
+          className="text-[27px] lg:text-5xl font-bold mb-4 relative inline-block"
         >
           How It <span className="text-primary">Works</span>
           <motion.div
@@ -112,7 +112,7 @@ export default function HowWorks() {
 
         <motion.p
           variants={fadeUp}
-          className="text-lg text-muted-foreground max-w-2xl mt-6"
+          className="md:text-lg text-muted-foreground max-w-2xl mt-6"
         >
           Most people think buying property or a car is complicated.
           <span className="text-primary font-semibold">
