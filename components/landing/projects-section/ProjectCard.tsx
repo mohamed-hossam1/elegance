@@ -50,7 +50,7 @@ const ProjectCard = ({
         <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-all duration-500 group-hover:translate-y-[-8px]">
           <div className="flex items-end justify-between">
             <div>
-              <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-lg font-bold mb-1 text-white group-hover:text-primary transition-colors duration-300">
                 {title}
               </h3>
               <p className="text-white/90 text-[12px] group-hover:text-white transition-colors duration-300">
