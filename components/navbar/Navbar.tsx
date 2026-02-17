@@ -1,8 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import {
+  ArrowDown,
+  Facebook,
+  Instagram,
+  Languages,
+  Menu,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Sheet,
   SheetContent,
@@ -22,6 +36,7 @@ import {
   HoverScale,
   TapScale,
 } from "@/lib/animations/components";
+import SocialIcons from "./SocialIcons";
 
 const navLinks = [
   { label: "Home", href: ROUTES.LABDING_PAGE },
@@ -33,6 +48,7 @@ const Navbar = () => {
   const location = usePathname();
   const [open, setOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const [language, setLanguage] = useState<"English" | "Arabic">("English");
 
   return (
     <header className="relative">
@@ -45,7 +61,7 @@ const Navbar = () => {
             className="flex items-center gap-2.5 group relative"
           >
             <HoverScale className="relative flex h-14 w-14 items-center justify-center rounded-xl gold-gradient overflow-hidden">
-              <TapScale >
+              <TapScale>
                 <Image
                   src={logo}
                   alt="Elegance Logo"
@@ -54,8 +70,8 @@ const Navbar = () => {
                   className="relative z-10 transition-transform duration-500  "
                 />
               </TapScale>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-xl transition-all duration-500" />{" "}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-xl transition-all duration-500" />{" "}
             </HoverScale>
 
             <motion.span
@@ -120,7 +136,30 @@ const Navbar = () => {
           <div className="hidden items-center gap-3 md:flex">
             <ModeToggle />
 
-            <Button
+            <SocialIcons />
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  aria-label="Select language"
+                  className="inline-flex items-center gap-2 rounded-full border border-border/40 bg-background/70 px-3 py-1.5 text-xs font-semibold text-foreground/80 transition-all duration-300 hover:text-foreground hover:border-primary/50 hover:bg-primary/5"
+                >
+                  <span>{language}</span>
+                  <ArrowDown className="h-4 w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[140px]">
+                <DropdownMenuItem onSelect={() => setLanguage("English")}>
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => setLanguage("Arabic")}>
+                  Arabic
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* <Button
               className="primary-gradient group relative overflow-hidden shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
               size="sm"
               asChild
@@ -133,7 +172,7 @@ const Navbar = () => {
 
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </Link>
-            </Button>
+            </Button> */}
           </div>
 
           <div className="flex items-center z-50 gap-2 md:hidden">
@@ -247,7 +286,11 @@ const Navbar = () => {
 
                   <div className="h-[1px] bg-gradient-to-r from-transparent via-border to-transparent" />
 
-                  <motion.div
+                  <div className="flex items-center justify-between gap-3">
+                    <SocialIcons />
+                  </div>
+
+                  {/* <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
@@ -268,7 +311,7 @@ const Navbar = () => {
                         <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
                       </Link>
                     </Button>
-                  </motion.div>
+                  </motion.div> */}
 
                   <motion.div
                     initial={{ opacity: 0 }}
