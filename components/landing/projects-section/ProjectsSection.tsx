@@ -9,40 +9,46 @@ import {
   StaggerContainer,
   TapScale,
 } from "@/lib/animations/components";
+import project1 from '@/public/project_1.webp'
+import project2 from '@/public/project_2.webp'
+import project3 from '@/public/project_3.webp'
+import project4 from '@/public/project_4.webp'
+import project5 from '@/public/project_5.webp'
 
 const ProjectsSection = () => {
   const projects = [
     {
-      href: ROUTES.CARS,
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/a6cd0fb96a7f17b3dab7d62d9b9298999486650d?width=445",
+      href: ROUTES.REAL_ESTATE,
+      src: project1,
       title: "Luxury Vehicles Collection",
       activities: "250+ Premium Cars",
-      className: "md:col-span-2",
+      className: "md:row-span-2 ",
+      imageStyle: "object-fill"
     },
     {
       href: ROUTES.REAL_ESTATE,
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/286851a30b70f308f785c88d9fcf47c2c8415f8c?width=636",
+      src: project2,
       title: "Elite Properties",
       activities: "180+ Exclusive Estates",
       className: "",
     },
     {
       href: ROUTES.REAL_ESTATE,
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/de5ee789e574af49452eaed2707f48bcfaf47d2d?width=445",
+      src: project3,
       title: "Penthouse Suites",
       activities: "95+ Luxury Penthouses",
       className: "",
     },
     {
       href: ROUTES.REAL_ESTATE,
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/665a45f089407c63902c17a17c78dc285f7e71f0?width=445",
+      src: project4,
       title: "Beachfront Villas",
       activities: "120+ Coastal Properties",
       className: "",
     },
     {
       href: ROUTES.REAL_ESTATE,
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/b3660a04e8fd438e22b71718f1eeace74e7cad89?width=445",
+      src: project5,
       title: "Urban Residences",
       activities: "200+ City Apartments",
       className: "",
@@ -70,7 +76,7 @@ const ProjectsSection = () => {
         </AnimatedSection>
       </StaggerContainer>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 md:auto-rows-[253px]">
         {projects.map((project, idx) => (
           <ProjectCard key={idx} {...project} delay={idx * 0.1} />
         ))}

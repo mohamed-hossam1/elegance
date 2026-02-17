@@ -5,7 +5,7 @@ import {
   ScaleIn,
   StaggerContainer,
 } from "@/lib/animations/components";
-import Demo from "@/public/Demo.png";
+import Demo from "@/public/Demo.webp";
 import Image from "next/image";
 
 const DemoVideoSection = () => {
