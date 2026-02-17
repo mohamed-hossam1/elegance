@@ -12,6 +12,7 @@ import {
   TapScale,
 } from "@/lib/animations/components";
 import GridCircle from "@/components/GridCircle";
+import logo from "@/public/logo.png";
 
 const HeroSection = () => {
   const images = [
@@ -50,6 +51,13 @@ const HeroSection = () => {
         <div className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <StaggerContainer className="relative z-10">
             <div className="absolute -top-10 -left-10 w-32 h-32 bg-primary/20 blur-3xl rounded-full" />
+            <Image
+              className="absolute -z-40 opacity-15"
+              src={logo}
+              alt="logo"
+              width={500}
+              height={500}
+            ></Image>
 
             <AnimatedSection className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
               <Sparkles className="w-4 h-4 text-primary" />
@@ -139,10 +147,19 @@ const HeroSection = () => {
           <StaggerContainer className="relative">
             <div className="grid grid-cols-2 gap-4  hidden md:grid relative">
               {images.map((image, idx) => (
-                <ScaleIn
+                <motion.div
                   key={idx}
-                  delay={idx * 0.15}
                   className={`relative group ${image.translateY}`}
+                  animate={{
+                    y: idx % 2 === 0 ? [0, -10, 0] : [0, 10, 0],
+                    rotate: idx % 2 === 0 ? [0, 1.2, 0] : [0, -1.2, 0],
+                  }}
+                  transition={{
+                    duration: 6 + idx,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: idx * 0.3,
+                  }}
                 >
                   <div className="relative overflow-hidden rounded-xl">
                     <Image
@@ -160,14 +177,8 @@ const HeroSection = () => {
                     </div>
 
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/30 rounded-xl transition-all duration-500" />
-
-                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:rotate-12">
-                      <div className="w-8 h-8 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                        <Sparkles className="w-4 h-4 text-primary" />
-                      </div>
-                    </div>
                   </div>
-                </ScaleIn>
+                </motion.div>
               ))}
               <GridCircle className="-top-30 -left-20"></GridCircle>
             </div>
