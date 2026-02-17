@@ -7,7 +7,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "i.pravatar.cc",
         port: "",
-        pathname: "/**", 
+        pathname: "/**",
       },
       {
         protocol: "https",
@@ -19,6 +19,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "api.builder.io",
         pathname: "/api/v1/image/assets/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**", 
       },
     ],
   },
