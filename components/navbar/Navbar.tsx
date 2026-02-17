@@ -29,7 +29,7 @@ import { ModeToggle } from "./ModeToggle";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { ROUTES } from "@/constants/routes";
-import logo from "@/public/logo.png";
+import logo from "@/public/logo.webp";
 import Image from "next/image";
 import {
   AnimatedFromTop,

@@ -9,11 +9,11 @@ import {
   StaggerContainer,
   TapScale,
 } from "@/lib/animations/components";
-import project1 from '@/public/project_1.png'
-import project2 from '@/public/project_2.png'
-import project3 from '@/public/project_3.png'
-import project4 from '@/public/project_4.png'
-import project5 from '@/public/project_5.png'
+import project1 from '@/public/project_1.webp'
+import project2 from '@/public/project_2.webp'
+import project3 from '@/public/project_3.webp'
+import project4 from '@/public/project_4.webp'
+import project5 from '@/public/project_5.webp'
 
 const ProjectsSection = () => {
   const projects = [

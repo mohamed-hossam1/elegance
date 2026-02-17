@@ -11,11 +11,11 @@ import {
   TapScale,
 } from "@/lib/animations/components";
 import GridCircle from "@/components/GridCircle";
-import logo from "@/public/logo.png";
-import LuxuryProperty1 from "@/public/luxury_property_1.png";
-import LuxuryProperty2 from "@/public/luxury_property_2.png";
-import LuxuryProperty3 from "@/public/luxury_property_3.png";
-import PremiumCar1 from "@/public/premium_car_1.png";
+import logo from "@/public/logo.webp";
+import LuxuryProperty1 from "@/public/luxury_property_1.webp";
+import LuxuryProperty2 from "@/public/luxury_property_2.webp";
+import LuxuryProperty3 from "@/public/luxury_property_3.webp";
+import PremiumCar1 from "@/public/premium_car_1.webp";
 
 const HeroSection = () => {
   const images = [
