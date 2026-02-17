@@ -8,35 +8,38 @@ import {
   AnimatedSection,
   AnimatedUnderline,
   StaggerContainer,
-  ScaleIn,
   TapScale,
 } from "@/lib/animations/components";
 import GridCircle from "@/components/GridCircle";
 import logo from "@/public/logo.png";
+import LuxuryProperty1 from "@/public/luxury_property_1.png";
+import LuxuryProperty2 from "@/public/luxury_property_2.png";
+import LuxuryProperty3 from "@/public/luxury_property_3.png";
+import PremiumCar1 from "@/public/premium_car_1.png";
 
 const HeroSection = () => {
   const images = [
     {
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/de5ee789e574af49452eaed2707f48bcfaf47d2d?width=445",
+      src: LuxuryProperty1,
       alt: "Luxury Property 1",
       className: "w-full h-[150px] object-cover rounded-xl",
       translateY: "-translate-y-2",
     },
     {
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/665a45f089407c63902c17a17c78dc285f7e71f0?width=445",
-      alt: "Luxury Property 2",
+      src: LuxuryProperty3,
+      alt: "Luxury Property 3",
       className: "w-full h-[202px] object-cover rounded-xl",
       translateY: "translate-y-5",
     },
     {
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/b3660a04e8fd438e22b71718f1eeace74e7cad89?width=445",
+      src: PremiumCar1,
       alt: "Premium Car 1",
       className: "w-full h-[202px] object-cover rounded-xl",
       translateY: "-translate-y-8",
     },
     {
-      src: "https://api.builder.io/api/v1/image/assets/TEMP/a6cd0fb96a7f17b3dab7d62d9b9298999486650d?width=445",
-      alt: "Premium Car 2",
+      src: LuxuryProperty2,
+      alt: "Luxury Property 2",
       className: "w-full h-[147px] object-cover rounded-xl",
       translateY: "translate-y-8",
     },

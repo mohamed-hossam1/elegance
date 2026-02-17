@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { ScaleIn } from "@/lib/animations/components";
 
 const ProjectCard = ({
@@ -10,20 +10,22 @@ const ProjectCard = ({
   title,
   activities,
   className = "",
+  imageStyle = "",
   delay = 0,
 }: {
   href: string;
-  src: string;
+  src: StaticImageData;
   title: string;
   activities: string;
   className?: string;
+  imageStyle?: string;
   delay?: number;
 }) => {
   return (
     <ScaleIn delay={delay} className={className}>
       <Link
         href={href}
-        className="block h-[253px] rounded-[18px] overflow-hidden relative group"
+        className="block h-[253px] md:h-full rounded-[18px] overflow-hidden relative group"
       >
         <div className="relative w-full h-full overflow-hidden">
           <Image
@@ -31,7 +33,7 @@ const ProjectCard = ({
             alt={title}
             width={500}
             height={500}
-            className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
+            className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-1 ${imageStyle ? imageStyle : ""}`}
           />
 
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
