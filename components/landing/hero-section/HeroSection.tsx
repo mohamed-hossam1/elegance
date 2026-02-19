@@ -46,9 +46,9 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative max-w-[1650px] min-h-[750px] flex justify-center items-center mx-auto px-4 lg:px-[138px] mt-20 py-12 lg:py-[120px] overflow-hidden">
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/10 blur-[150px] rounded-full -z-10" />
-      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-primary/5 blur-[120px] rounded-full -z-10" />
+    <section className="relative max-w-412.5 min-h-187.5 flex justify-center items-center mx-auto px-4 lg:px-34.5 mt-20 py-12 lg:py-30 overflow-hidden">
+      <div className="absolute top-1/4 left-0 w-125 h-125 bg-primary/10 blur-[150px] rounded-full -z-10" />
+      <div className="absolute bottom-1/4 right-0 w-100 h-100 bg-primary/5 blur-[120px] rounded-full -z-10" />
 
       <div className="container mx-auto px-4">
         <div className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -83,8 +83,8 @@ const HeroSection = () => {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <p className="max-w-lg text-text-secondary leading-relaxed text-muted-foreground text-[14px] md:text-lg">
-                We don't just sell properties and cars — we deliver
+              <p className="max-w-lg text-text-secondary leading-relaxed text-[14px] md:text-lg">
+                We don&apos;t just sell properties and cars — we deliver
                 life-changing decisions with one move. Expert guidance,
                 transparent deals, and the luxury you actually deserve.
               </p>
@@ -107,7 +107,7 @@ const HeroSection = () => {
                     </div>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 text-primary transition-transform duration-300" />
 
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   </Link>
                 </Button>
               </TapScale>
@@ -131,9 +131,9 @@ const HeroSection = () => {
             </AnimatedSection>
 
             <AnimatedSection delay={0.4} className="mt-10  relative">
-              <div className="h-[1px] w-full bg-gradient-to-r from-primary via-primary/50 to-transparent" />
+              <div className="h-px w-full bg-linear-to-r from-primary via-primary/50 to-transparent" />
               <motion.div
-                className="absolute top-0 left-0 h-[3px] w-20 bg-primary blur-sm"
+                className="absolute top-0 left-0 h-0.75 w-20 bg-primary blur-sm"
                 animate={{
                   x: [0, 100, 0],
                   opacity: [0.5, 1, 0.5],
@@ -148,7 +148,7 @@ const HeroSection = () => {
           </StaggerContainer>
 
           <StaggerContainer className="relative">
-            <div className="grid grid-cols-2 gap-4  hidden md:grid relative">
+            <div className="grid-cols-2 gap-4 hidden md:grid relative">
               {images.map((image, idx) => (
                 <motion.div
                   key={idx}
@@ -173,10 +173,10 @@ const HeroSection = () => {
                       className={`${image.className} transition-all duration-700 group-hover:scale-110 group-hover:rotate-1`}
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                      <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     </div>
 
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/30 rounded-xl transition-all duration-500" />
