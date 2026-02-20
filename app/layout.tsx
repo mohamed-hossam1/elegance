@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/lib/providers/theme-provider";
 import Navbar from "@/components/navbar/Navbar";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { readConfig } from "@/lib/config";
 
 export default async function RootLayout({
   children,
@@ -10,6 +11,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+  const config = readConfig();
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -25,7 +27,7 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <div className="min-h-screen bg-background">
-              <Navbar />
+              <Navbar socials={config.company.socials} />
               {children}
             </div>
           </ThemeProvider>
