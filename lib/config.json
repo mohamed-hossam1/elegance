@@ -1,14 +1,14 @@
 {
   "company": {
     "name": "Eleegance",
-    "phone": "",
-    "whatsapp": "",
+    "phone": "012 70001991",
+    "whatsapp": "+20 12 70001991‏",
     "email": "",
     "address": "",
     "socials": {
-      "facebook": "",
-      "instagram": "",
-      "tiktok": "",
+      "facebook": "https://www.facebook.com/share/1G7Z4cZR4q/",
+      "instagram": "https://www.instagram.com/elegancedevelopment_?igsh=MWtzcmx5cGFjcHphdA==",
+      "tiktok": "https://www.tiktok.com/@elegance.developm?_r=1&_t=ZS-9451NTlvFGa",
       "twitter": "",
       "youtube": ""
     }
@@ -26,7 +26,7 @@
     },
     {
       "id": "3",
-      "question": "Can I trade in my current vehicle when purchasing a new one?",
+      "question": "Can I trade in my curren",
       "answer": "Yes, we accept trade-ins and offer highly competitive valuations. Our team of experts will assess your current vehicle and provide a fair market value that can be applied directly to your new purchase. We handle all the paperwork and make the transition seamless, so you can drive away in your new luxury vehicle worry-free."
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "id": "3",
-      "title": "Penthouse Suites",
+      "title": "Penthous",
       "activities": "95+ Luxury Penthouses",
       "href": "/real-estate",
       "src": "/project_3.webp"
@@ -75,11 +75,6 @@
   ],
   "reels": [
     {
-      "id": "1",
-      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
-      "duration": "1:20"
-    },
-    {
       "id": "3",
       "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
       "duration": "1:45"
@@ -88,11 +83,6 @@
       "id": "4",
       "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
       "duration": "2:10"
-    },
-    {
-      "id": "5",
-      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
-      "duration": "1:30"
     },
     {
       "id": "6",
@@ -105,9 +95,19 @@
       "duration": "1:55"
     },
     {
-      "id": "1771590022405",
+      "id": "1771595804642",
       "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
-      "duration": "30"
+      "duration": "0:45"
+    },
+    {
+      "id": "1771595814813",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "0:30"
+    },
+    {
+      "id": "1771595848221",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "0:55"
     }
   ],
   "testimonials": [
@@ -115,7 +115,7 @@
       "id": "1",
       "name": "Sarah Thompson",
       "role": "Property Owner",
-      "avatar": "https://i.pravatar.cc/150?img=12",
+      "avatar": "",
       "rating": 5,
       "review": "Absolutely phenomenal experience! The team made buying my dream penthouse effortless. From the first consultation to getting the keys, everything was handled with professionalism and care.",
       "category": "property"

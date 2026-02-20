@@ -39,37 +39,38 @@ export default function Reels({ reels }: Props) {
       </StaggerContainer>
 
       <div className="flex justify-center gap-6 items-center flex-wrap lg:flex-nowrap">
-        <AnimatedSection delay={0.1}>
-          <ReelCard reel={reels[0]} tall />
-        </AnimatedSection>
+        {reels.map((reel, index) => {
+          const isTall = index % 3 === 0;
+          const isGroupStart = index % 3 === 1;
 
-        <div className="flex flex-col gap-6">
-          <AnimatedSection delay={0.2}>
-            <ReelCard reel={reels[1]} />
-          </AnimatedSection>
+          const delay = 0.1 + index * 0.05;
 
-          <AnimatedSection delay={0.25}>
-            <ReelCard reel={reels[2]} />
-          </AnimatedSection>
-        </div>
+          if (isTall) {
+            return (
+              <AnimatedSection key={reel.id} delay={delay}>
+                <ReelCard reel={reel} tall />
+              </AnimatedSection>
+            );
+          }
 
-        <AnimatedSection delay={0.3}>
-          <ReelCard reel={reels[3]} tall />
-        </AnimatedSection>
+          if (isGroupStart) {
+            const next = reels[index + 1];
+            return (
+              <div key={reel.id} className="flex flex-col gap-6">
+                <AnimatedSection delay={delay}>
+                  <ReelCard reel={reel} />
+                </AnimatedSection>
+                {next && (
+                  <AnimatedSection delay={delay + 0.05}>
+                    <ReelCard reel={next} />
+                  </AnimatedSection>
+                )}
+              </div>
+            );
+          }
 
-        <div className="flex flex-col gap-6">
-          <AnimatedSection delay={0.35}>
-            <ReelCard reel={reels[4]} />
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.4}>
-            <ReelCard reel={reels[5]} />
-          </AnimatedSection>
-        </div>
-
-        <AnimatedSection delay={0.45}>
-          <ReelCard reel={reels[6]} tall />
-        </AnimatedSection>
+          return null; // consumed by isGroupStart
+        })}
       </div>
     </section>
   );

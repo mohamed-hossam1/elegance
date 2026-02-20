@@ -9,7 +9,7 @@ import {
 interface ReviewCardProps {
   name: string;
   role: string;
-  avatar: string;
+  avatar?: string;
   rating: number;
   review: string;
   delay: number;
@@ -27,10 +27,7 @@ export default function ReviewCard({
 }: ReviewCardProps) {
   return (
     <>
-      <AnimatedSection
-        delay={delay}
-        className="group relative h-full"
-      >
+      <AnimatedSection delay={delay} className="group relative h-full">
         <div className="relative h-full p-8 rounded-2xl border border-primary/30 bg-linear-to-br from-card to-card/50 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -55,13 +52,21 @@ export default function ReviewCard({
 
           <div className="relative mt-12 mb-6 flex items-center gap-4">
             <HoverScale className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary/50 group-hover:border-primary transition-all duration-300">
-              <Image
-                src={avatar}
-                alt={name}
-                width={64}
-                height={64}
-                className="w-full h-full object-cover"
-              />
+              {avatar ? (
+                <Image
+                  src={avatar}
+                  alt={name}
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-primary/20 flex items-center justify-center">
+                  <span className="text-primary font-semibold text-xl">
+                    {name.charAt(0).toUpperCase()}
+                  </span>
+                </div>
+              )}
 
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </HoverScale>
