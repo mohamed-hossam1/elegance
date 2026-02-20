@@ -1,15 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ArrowDown,
-  Facebook,
-  Instagram,
-  Languages,
-  Menu,
-  Sparkles,
-  X,
-} from "lucide-react";
+import { ArrowDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -44,7 +36,17 @@ const navLinks = [
   { label: "Cars", href: ROUTES.CARS },
 ];
 
-const Navbar = () => {
+interface Props {
+  socials: {
+    facebook: string;
+    instagram: string;
+    tiktok: string;
+    twitter: string;
+    youtube: string;
+  };
+}
+
+const Navbar = ({ socials }: Props) => {
   const location = usePathname();
   const [open, setOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
@@ -52,8 +54,8 @@ const Navbar = () => {
 
   return (
     <header className="relative">
-      <AnimatedFromTop className="fixed max-w-[1650px] mx-auto px-4 lg:px-[138px] py-1 top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      <AnimatedFromTop className="fixed max-w-412.5 mx-auto px-4 lg:px-34.5 py-1 top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+        <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
         <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:h-18 relative z-10">
           <Link
@@ -70,14 +72,14 @@ const Navbar = () => {
                   className="relative z-10 transition-transform duration-500  "
                 />
               </TapScale>
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-xl transition-all duration-500" />{" "}
             </HoverScale>
 
             <motion.span
               initial={{ opacity: 0, x: -10 }}
               whileHover={{ opacity: 1, x: 0 }}
-              className="hidden lg:block font-bold text-lg bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent"
+              className="hidden lg:block font-bold text-lg bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent"
             >
               Elegance
             </motion.span>
@@ -127,7 +129,7 @@ const Navbar = () => {
                     />
                   )}
 
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
                 </Link>
               );
             })}
@@ -136,7 +138,7 @@ const Navbar = () => {
           <div className="hidden items-center gap-3 md:flex">
             <ModeToggle />
 
-            <SocialIcons />
+            <SocialIcons socials={socials} />
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -149,7 +151,7 @@ const Navbar = () => {
                   <ArrowDown className="h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[140px]">
+              <DropdownMenuContent align="end" className="min-w-35">
                 <DropdownMenuItem onSelect={() => setLanguage("English")}>
                   English
                 </DropdownMenuItem>
@@ -229,7 +231,7 @@ const Navbar = () => {
                       <span className="font-display text-lg font-bold text-primary-foreground relative z-10">
                         E
                       </span>
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     <div>
                       <h3 className="font-bold text-lg">Elegance</h3>
@@ -239,7 +241,7 @@ const Navbar = () => {
                     </div>
                   </div>
 
-                  <div className="h-[1px] bg-gradient-to-r from-transparent via-border to-transparent" />
+                  <div className="h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
                   <nav className="flex flex-col gap-2">
                     {navLinks.map((link, index) => {
@@ -284,10 +286,10 @@ const Navbar = () => {
                     })}
                   </nav>
 
-                  <div className="h-[1px] bg-gradient-to-r from-transparent via-border to-transparent" />
+                  <div className="h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
                   <div className="flex items-center justify-between gap-3">
-                    <SocialIcons />
+                    <SocialIcons socials={socials} />
                   </div>
 
                   {/* <motion.div
@@ -327,7 +329,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/30 to-transparent" />
       </AnimatedFromTop>
     </header>
   );

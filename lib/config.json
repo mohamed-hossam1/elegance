@@ -1,0 +1,169 @@
+{
+  "company": {
+    "name": "Eleegance",
+    "phone": "012 70001991",
+    "whatsapp": "+20 12 70001991‏",
+    "email": "",
+    "address": "",
+    "socials": {
+      "facebook": "https://www.facebook.com/share/1G7Z4cZR4q/",
+      "instagram": "https://www.instagram.com/elegancedevelopment_?igsh=MWtzcmx5cGFjcHphdA==",
+      "tiktok": "https://www.tiktok.com/@elegance.developm?_r=1&_t=ZS-9451NTlvFGa",
+      "twitter": "",
+      "youtube": ""
+    }
+  },
+  "faqs": [
+    {
+      "id": "1",
+      "question": "How long does the buying process typically take?",
+      "answer": "The timeline varies depending on your specific needs, but on average, our streamlined process takes 2-4 weeks for vehicles and 4-8 weeks for properties. We handle all paperwork, financing, and legal reviews to ensure the fastest possible completion while maintaining the highest standards of quality and transparency."
+    },
+    {
+      "id": "2",
+      "question": "Do you offer financing options for luxury properties?",
+      "answer": "Absolutely! We partner with premier financial institutions to offer competitive financing solutions tailored to luxury real estate. Our dedicated financing team works with you to secure the best rates and terms, whether you're purchasing a penthouse, beachfront villa, or investment property. We handle everything from pre-approval to closing."
+    },
+    {
+      "id": "3",
+      "question": "Can I trade in my curren",
+      "answer": "Yes, we accept trade-ins and offer highly competitive valuations. Our team of experts will assess your current vehicle and provide a fair market value that can be applied directly to your new purchase. We handle all the paperwork and make the transition seamless, so you can drive away in your new luxury vehicle worry-free."
+    },
+    {
+      "id": "4",
+      "question": "What areas do you serve for real estate?",
+      "answer": "We specialize in premium locations across major metropolitan areas, coastal regions, and exclusive neighborhoods. Our portfolio includes penthouses, beachfront properties, urban residences, and luxury estates. Whether you're looking for a primary residence, vacation home, or investment property, our team has extensive local market knowledge to find your perfect match."
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Luxury Vehicles Collection",
+      "activities": "250+ Premium Cars",
+      "href": "/real-estate",
+      "src": "/project_1.webp"
+    },
+    {
+      "id": "2",
+      "title": "Elite Properties",
+      "activities": "180+ Exclusive Estates",
+      "href": "/real-estate",
+      "src": "/project_2.webp"
+    },
+    {
+      "id": "3",
+      "title": "Penthous",
+      "activities": "95+ Luxury Penthouses",
+      "href": "/real-estate",
+      "src": "/project_3.webp"
+    },
+    {
+      "id": "4",
+      "title": "Beachfront Villas",
+      "activities": "120+ Coastal Properties",
+      "href": "/real-estate",
+      "src": "/project_4.webp",
+      "className": ""
+    },
+    {
+      "id": "5",
+      "title": "Urban Residences",
+      "activities": "200+ City Apartments",
+      "href": "/real-estate",
+      "src": "/project_5.webp"
+    }
+  ],
+  "reels": [
+    {
+      "id": "3",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "1:45"
+    },
+    {
+      "id": "4",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "2:10"
+    },
+    {
+      "id": "6",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "0:45"
+    },
+    {
+      "id": "7",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "1:55"
+    },
+    {
+      "id": "1771595804642",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "0:45"
+    },
+    {
+      "id": "1771595814813",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "0:30"
+    },
+    {
+      "id": "1771595848221",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "0:55"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Sarah Thompson",
+      "role": "Property Owner",
+      "avatar": "",
+      "rating": 5,
+      "review": "Absolutely phenomenal experience! The team made buying my dream penthouse effortless. From the first consultation to getting the keys, everything was handled with professionalism and care.",
+      "category": "property"
+    },
+    {
+      "id": "2",
+      "name": "Michael Chen",
+      "role": "Luxury Car Enthusiast",
+      "avatar": "https://i.pravatar.cc/150?img=32",
+      "rating": 5,
+      "review": "I've purchased three luxury vehicles through Elegance, and each time has been flawless. Their expertise in the high-end car market is unmatched. Highly recommended!",
+      "category": "car"
+    },
+    {
+      "id": "3",
+      "name": "Jennifer Martinez",
+      "role": "Real Estate Investor",
+      "avatar": "https://i.pravatar.cc/150?img=45",
+      "rating": 5,
+      "review": "As an investor, I need transparency and efficiency. Elegance delivered both. They handled all the legal work and financing, allowing me to focus on what matters most.",
+      "category": "property"
+    },
+    {
+      "id": "4",
+      "name": "David Williams",
+      "role": "CEO & Entrepreneur",
+      "avatar": "https://i.pravatar.cc/150?img=56",
+      "rating": 5,
+      "review": "The level of service is exceptional. They understood exactly what I was looking for and found me the perfect estate. The entire process was seamless from start to finish.",
+      "category": "property"
+    },
+    {
+      "id": "5",
+      "name": "Emily Rodriguez",
+      "role": "Sports Car Collector",
+      "avatar": "https://i.pravatar.cc/150?img=64",
+      "rating": 5,
+      "review": "Finding rare luxury vehicles can be challenging, but Elegance made it look easy. Their network and expertise are truly world-class. Couldn't be happier with my purchase!",
+      "category": "car"
+    },
+    {
+      "id": "6",
+      "name": "Robert Anderson",
+      "role": "Beachfront Villa Owner",
+      "avatar": "https://i.pravatar.cc/150?img=68",
+      "rating": 5,
+      "review": "I was skeptical at first, but they exceeded every expectation. The consultation was thorough, the options were perfect, and the closing process was incredibly smooth. Five stars!",
+      "category": "property"
+    }
+  ]
+}

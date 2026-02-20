@@ -9,7 +9,7 @@ import {
 interface ReviewCardProps {
   name: string;
   role: string;
-  avatar: string;
+  avatar?: string;
   rating: number;
   review: string;
   delay: number;
@@ -27,14 +27,11 @@ export default function ReviewCard({
 }: ReviewCardProps) {
   return (
     <>
-      <AnimatedSection
-        delay={delay}
-        className="group relative h-full"
-      >
-        <div className="relative h-full p-8 rounded-2xl border border-primary/30 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
+      <AnimatedSection delay={delay} className="group relative h-full">
+        <div className="relative h-full p-8 rounded-2xl border border-primary/30 bg-linear-to-br from-card to-card/50 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+          <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
           <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
             <Quote className="w-16 h-16 text-primary" />
@@ -55,13 +52,21 @@ export default function ReviewCard({
 
           <div className="relative mt-12 mb-6 flex items-center gap-4">
             <HoverScale className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary/50 group-hover:border-primary transition-all duration-300">
-              <Image
-                src={avatar}
-                alt={name}
-                width={64}
-                height={64}
-                className="w-full h-full object-cover"
-              />
+              {avatar ? (
+                <Image
+                  src={avatar}
+                  alt={name}
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-primary/20 flex items-center justify-center">
+                  <span className="text-primary font-semibold text-xl">
+                    {name.charAt(0).toUpperCase()}
+                  </span>
+                </div>
+              )}
 
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </HoverScale>
@@ -89,10 +94,10 @@ export default function ReviewCard({
           </div>
 
           <p className="text-muted-foreground leading-relaxed relative z-10 group-hover:text-foreground transition-colors duration-300">
-            "{review}"
+            &quot;{review}&quot;
           </p>
 
-          <div className="mt-6 h-[2px] bg-gradient-to-r from-primary via-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+          <div className="mt-6 h-0.5 bg-linear-to-r from-primary via-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
 
           <div className="absolute bottom-6 right-6 w-8 h-8 rounded-full bg-primary/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
             <ArrowRight className="w-4 h-4 text-primary" />

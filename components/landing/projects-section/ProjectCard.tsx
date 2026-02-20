@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { ScaleIn } from "@/lib/animations/components";
 
 const ProjectCard = ({
@@ -14,7 +14,7 @@ const ProjectCard = ({
   delay = 0,
 }: {
   href: string;
-  src: StaticImageData;
+  src: string;
   title: string;
   activities: string;
   className?: string;
@@ -25,7 +25,7 @@ const ProjectCard = ({
     <ScaleIn delay={delay} className={className}>
       <Link
         href={href}
-        className="block h-[253px] md:h-full rounded-[18px] overflow-hidden relative group"
+        className="block h-63.25 md:h-full rounded-[18px] overflow-hidden relative group"
       >
         <div className="relative w-full h-full overflow-hidden">
           <Image
@@ -33,15 +33,17 @@ const ProjectCard = ({
             alt={title}
             width={500}
             height={500}
-            className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-1 ${imageStyle ? imageStyle : ""}`}
+            className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-1 ${
+              imageStyle ? imageStyle : ""
+            }`}
           />
 
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out" />
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
           </div>
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500" />
 
         <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-[18px] transition-all duration-500" />
 
@@ -49,7 +51,7 @@ const ProjectCard = ({
           <Sparkles className="w-6 h-6 text-primary" />
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-all duration-500 group-hover:translate-y-[-8px]">
+        <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-all duration-500 group-hover:-translate-y-2">
           <div className="flex items-end justify-between">
             <div>
               <h3 className="text-lg font-bold mb-1 text-white group-hover:text-primary transition-colors duration-300">
@@ -65,7 +67,7 @@ const ProjectCard = ({
             </div>
           </div>
 
-          <div className="mt-4 h-[2px] bg-gradient-to-r from-primary/0 via-primary to-primary/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
+          <div className="mt-4 h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
         </div>
       </Link>
     </ScaleIn>

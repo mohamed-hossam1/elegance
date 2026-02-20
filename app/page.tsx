@@ -5,20 +5,19 @@ import ProjectsSection from "@/components/landing/projects-section/ProjectsSecti
 import Reels from "@/components/landing/reels-section/Reels";
 import Reviews from "@/components/landing/Reviews/Reviews";
 import DemoVideoSection from "@/components/landing/demo-video-section/DemoVideoSection";
-
+import { readConfig } from "@/lib/config";
 export default function Home() {
+  const config = readConfig();
   return (
     <>
       <main className="min-h-screen bg-background">
-
-
         <HeroSection />
-        <ProjectsSection />
+        <ProjectsSection projects={config.projects} />
         <DemoVideoSection />
         <HowWorks />
-        <Reviews />
-        <FAQ />
-        <Reels />
+        <Reviews reviews={config.testimonials} />
+        <FAQ faqs={config.faqs} />
+        <Reels reels={config.reels} />
         {/* <Footer/> */}
       </main>
     </>

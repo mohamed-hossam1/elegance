@@ -7,6 +7,8 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "14.1"
   }
@@ -88,48 +90,6 @@ export type Database = {
           },
         ]
       }
-      company_settings: {
-        Row: {
-          address: string | null
-          company_name: string
-          email: string | null
-          facebook: string | null
-          id: string
-          instagram: string | null
-          phone: string | null
-          tiktok: string | null
-          twitter: string | null
-          whatsapp: string | null
-          youtube: string | null
-        }
-        Insert: {
-          address?: string | null
-          company_name?: string
-          email?: string | null
-          facebook?: string | null
-          id?: string
-          instagram?: string | null
-          phone?: string | null
-          tiktok?: string | null
-          twitter?: string | null
-          whatsapp?: string | null
-          youtube?: string | null
-        }
-        Update: {
-          address?: string | null
-          company_name?: string
-          email?: string | null
-          facebook?: string | null
-          id?: string
-          instagram?: string | null
-          phone?: string | null
-          tiktok?: string | null
-          twitter?: string | null
-          whatsapp?: string | null
-          youtube?: string | null
-        }
-        Relationships: []
-      }
       cta_section: {
         Row: {
           cars_button: string
@@ -151,24 +111,6 @@ export type Database = {
           id?: string
           subtitle?: string
           title?: string
-        }
-        Relationships: []
-      }
-      faq_section: {
-        Row: {
-          answer: string
-          id: string
-          question: string
-        }
-        Insert: {
-          answer: string
-          id?: string
-          question: string
-        }
-        Update: {
-          answer?: string
-          id?: string
-          question?: string
         }
         Relationships: []
       }
@@ -386,27 +328,6 @@ export type Database = {
           },
         ]
       }
-      projects_section: {
-        Row: {
-          id: string
-          images: string[]
-          subtitle: string
-          title: string
-        }
-        Insert: {
-          id?: string
-          images: string[]
-          subtitle?: string
-          title?: string
-        }
-        Update: {
-          id?: string
-          images?: string[]
-          subtitle?: string
-          title?: string
-        }
-        Relationships: []
-      }
       property_details: {
         Row: {
           area: number
@@ -447,27 +368,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
-      }
-      testimonials: {
-        Row: {
-          comment: string
-          id: string
-          name: string
-          role: string | null
-        }
-        Insert: {
-          comment: string
-          id?: string
-          name: string
-          role?: string | null
-        }
-        Update: {
-          comment?: string
-          id?: string
-          name?: string
-          role?: string | null
-        }
-        Relationships: []
       }
       users: {
         Row: {

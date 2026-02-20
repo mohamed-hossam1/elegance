@@ -9,56 +9,19 @@ import {
   StaggerContainer,
   TapScale,
 } from "@/lib/animations/components";
-import project1 from '@/public/project_1.webp'
-import project2 from '@/public/project_2.webp'
-import project3 from '@/public/project_3.webp'
-import project4 from '@/public/project_4.webp'
-import project5 from '@/public/project_5.webp'
+import { Project } from "@/types/global";
+import { cn } from "@/lib/utils";
 
-const ProjectsSection = () => {
-  const projects = [
-    {
-      href: ROUTES.REAL_ESTATE,
-      src: project1,
-      title: "Luxury Vehicles Collection",
-      activities: "250+ Premium Cars",
-      className: "md:row-span-2 ",
-      imageStyle: "object-fill"
-    },
-    {
-      href: ROUTES.REAL_ESTATE,
-      src: project2,
-      title: "Elite Properties",
-      activities: "180+ Exclusive Estates",
-      className: "",
-    },
-    {
-      href: ROUTES.REAL_ESTATE,
-      src: project3,
-      title: "Penthouse Suites",
-      activities: "95+ Luxury Penthouses",
-      className: "",
-    },
-    {
-      href: ROUTES.REAL_ESTATE,
-      src: project4,
-      title: "Beachfront Villas",
-      activities: "120+ Coastal Properties",
-      className: "",
-    },
-    {
-      href: ROUTES.REAL_ESTATE,
-      src: project5,
-      title: "Urban Residences",
-      activities: "200+ City Apartments",
-      className: "",
-    },
-  ];
+interface Props {
+  className?: string;
+  projects: Project[];
+}
 
+const ProjectsSection = ({ projects, className = "" }: Props) => {
   return (
     <section
       id="projects"
-      className="max-w-[1650px] mx-auto px-4 lg:px-[138px]  lg:py-24"
+      className={cn(className, "max-w-412.5 mx-auto px-4 lg:px-34.5  lg:py-24")}
     >
       <StaggerContainer className="mb-12 lg:mb-16">
         <AnimatedSection className="relative inline-block">
@@ -78,7 +41,13 @@ const ProjectsSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 md:auto-rows-[253px]">
         {projects.map((project, idx) => (
-          <ProjectCard key={idx} {...project} delay={idx * 0.1} />
+          <ProjectCard
+            key={idx}
+            {...project}
+            className={idx === 0 ? "md:row-span-2" : ""}
+            imageStyle={idx === 0 ? "object-fill" : ""}
+            delay={idx * 0.1}
+          />
         ))}
       </div>
 

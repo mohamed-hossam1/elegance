@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -12,76 +12,15 @@ import {
   StaggerContainer,
   TapScale,
 } from "@/lib/animations/components";
+import { Testimonial } from "@/types/global";
 
-export default function Reviews() {
-  const reviews = useMemo(
-    () => [
-      {
-        name: "Sarah Thompson",
-        role: "Property Owner",
-        avatar: "https://i.pravatar.cc/150?img=12",
-        rating: 5,
-        review:
-          "Absolutely phenomenal experience! The team made buying my dream penthouse effortless. From the first consultation to getting the keys, everything was handled with professionalism and care.",
-        category: "property" as const,
-      },
-      {
-        name: "Michael Chen",
-        role: "Luxury Car Enthusiast",
-        avatar: "https://i.pravatar.cc/150?img=32",
-        rating: 5,
-        review:
-          "I've purchased three luxury vehicles through Elegance, and each time has been flawless. Their expertise in the high-end car market is unmatched. Highly recommended!",
-        category: "car" as const,
-      },
-      {
-        name: "Jennifer Martinez",
-        role: "Real Estate Investor",
-        avatar: "https://i.pravatar.cc/150?img=45",
-        rating: 5,
-        review:
-          "As an investor, I need transparency and efficiency. Elegance delivered both. They handled all the legal work and financing, allowing me to focus on what matters most.",
-        category: "property" as const,
-      },
-      {
-        name: "David Williams",
-        role: "CEO & Entrepreneur",
-        avatar: "https://i.pravatar.cc/150?img=56",
-        rating: 5,
-        review:
-          "The level of service is exceptional. They understood exactly what I was looking for and found me the perfect estate. The entire process was seamless from start to finish.",
-        category: "property" as const,
-      },
-      {
-        name: "Emily Rodriguez",
-        role: "Sports Car Collector",
-        avatar: "https://i.pravatar.cc/150?img=64",
-        rating: 5,
-        review:
-          "Finding rare luxury vehicles can be challenging, but Elegance made it look easy. Their network and expertise are truly world-class. Couldn't be happier with my purchase!",
-        category: "car" as const,
-      },
-      {
-        name: "Robert Anderson",
-        role: "Beachfront Villa Owner",
-        avatar: "https://i.pravatar.cc/150?img=68",
-        rating: 5,
-        review:
-          "I was skeptical at first, but they exceeded every expectation. The consultation was thorough, the options were perfect, and the closing process was incredibly smooth. Five stars!",
-        category: "property" as const,
-      },
-    ],
-    [],
-  );
-
+export default function Reviews({ reviews }: { reviews: Testimonial[] }) {
   const [itemsPerView, setItemsPerView] = useState(3);
 
   useEffect(() => {
     const updateItems = () => {
-      if (window.innerWidth < 768)
-        setItemsPerView(1); // mobile
-      else if (window.innerWidth < 1024)
-        setItemsPerView(2); // tablet
+      if (window.innerWidth < 768) setItemsPerView(1); // mobile
+      else if (window.innerWidth < 1024) setItemsPerView(2); // tablet
       else setItemsPerView(3); // desktop
     };
 
@@ -107,7 +46,7 @@ export default function Reviews() {
   };
 
   return (
-    <section className="relative max-w-[1650px] mx-auto px-4 lg:px-[138px] py-16 lg:py-24 overflow-hidden">
+    <section className="relative max-w-412.5 mx-auto px-4 lg:px-34.5 py-16 lg:py-24 overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 blur-3xl rounded-full -z-10" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary/3 blur-3xl rounded-full -z-10" />
       <StaggerContainer className="mb-12 lg:mb-16">
@@ -120,7 +59,7 @@ export default function Reviews() {
 
         <AnimatedSection delay={0.1}>
           <p className="text-text-secondary md:text-lg mt-6 max-w-2xl">
-            Don't just take our word for it. Hear from clients who've
+            Don&apos;t just take our word for it. Hear from clients who&apos;ve
             experienced
             <span className="text-primary font-semibold">
               {" "}
@@ -137,8 +76,8 @@ export default function Reviews() {
             itemsPerView === 1
               ? "grid-cols-1"
               : itemsPerView === 2
-                ? "grid-cols-1 md:grid-cols-2"
-                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+              ? "grid-cols-1 md:grid-cols-2"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           }`}
         >
           {visibleReviews.map((review, index) => (
