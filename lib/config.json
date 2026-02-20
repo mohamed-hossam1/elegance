@@ -76,38 +76,38 @@
   "reels": [
     {
       "id": "1",
-      "src": "https://api.builder.io/api/v1/image/assets/TEMP/f4fefc7ce8b05834947204ef5a3b9c85674c169f?width=355",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
       "duration": "1:20"
     },
     {
-      "id": "2",
-      "src": "https://api.builder.io/api/v1/image/assets/TEMP/113da702de984fea41142e1eac10ae8ab5d5c067?width=356",
-      "duration": "0:58"
-    },
-    {
       "id": "3",
-      "src": "https://api.builder.io/api/v1/image/assets/TEMP/9d94abaddb05d482a14423e86adac4e20254dcf9?width=355",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
       "duration": "1:45"
     },
     {
       "id": "4",
-      "src": "https://api.builder.io/api/v1/image/assets/TEMP/db7bda0375b2640886db2a6e37d3e6749d01568d?width=357",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
       "duration": "2:10"
     },
     {
       "id": "5",
-      "src": "https://api.builder.io/api/v1/image/assets/TEMP/176469e329ab9426c5527b67b0cb3b0239fd5e51?width=355",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
       "duration": "1:30"
     },
     {
       "id": "6",
-      "src": "https://api.builder.io/api/v1/image/assets/TEMP/ce3ed4b9a5405599d8093b4ff1d2ce1c77483ebd?width=356",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
       "duration": "0:45"
     },
     {
       "id": "7",
-      "src": "https://api.builder.io/api/v1/image/assets/TEMP/d8cbd2d3c3b31cd159576f851cd545587284df1b?width=357",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
       "duration": "1:55"
+    },
+    {
+      "id": "1771590022405",
+      "src": "https://www.youtube.com/shorts/M36d8kkeUGo?feature=share",
+      "duration": "30"
     }
   ],
   "testimonials": [

@@ -18,7 +18,7 @@ import {
 export default function CTA() {
   return (
     <AnimatedSection className="relative mt-20">
-      <div className="relative rounded-2xl border border-primary/30 bg-gradient-to-br from-card via-card/50 to-primary/5 p-8 lg:p-12 overflow-hidden">
+      <div className="relative rounded-2xl border border-primary/30 bg-linear-to-br from-card via-card/50 to-primary/5 p-8 lg:p-12 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute top-0 left-0 w-full h-full"
@@ -42,7 +42,7 @@ export default function CTA() {
           </h3>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Don't wait. Your dream property or car is just a few clicks away.
+            Don&apos;t wait. Your dream property or car is just a few clicks away.
             Browse our exclusive collection and start your journey to elegance
             today.
           </p>
@@ -78,7 +78,7 @@ export default function CTA() {
                   </span>
                   <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform duration-300" />
 
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 </Link>
               </Button>
             </TapScale>

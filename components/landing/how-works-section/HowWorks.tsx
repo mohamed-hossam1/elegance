@@ -48,7 +48,7 @@ export default function HowWorks() {
   return (
     <section
       id="how"
-      className="relative max-w-[1650px] mx-auto px-4 lg:px-[138px] py-16 lg:py-24 overflow-hidden"
+      className="relative max-w-412.5 mx-auto px-4 lg:px-34.5 py-16 lg:py-24 overflow-hidden"
     >
       <div className="absolute top-1/4 right-0 w-72 h-72 bg-primary/5 blur-3xl rounded-full -z-10" />
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-primary/3 blur-3xl rounded-full -z-10" />

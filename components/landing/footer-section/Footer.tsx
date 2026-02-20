@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-[#D29F1F] to-[#A57E19] ">
-      <div className="relative max-w-[1650px] mx-auto px-4 lg:px-[138px] py-10 ">
+    <footer className="bg-linear-to-br from-[#D29F1F] to-[#A57E19] ">
+      <div className="relative max-w-412.5 mx-auto px-4 lg:px-34.5 py-10 ">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div>
             <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-6">
