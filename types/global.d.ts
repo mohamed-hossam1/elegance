@@ -21,6 +21,11 @@ type ErrorResponse = ActionResponse<undefined> & { success: false };
 type APIResponse<T = null> = NextResponse<SuccessResponse<T> | ErrorResponse>;
 type APIErrorResponse = NextResponse<ErrorResponse>;
 
+interface RouteParams {
+  params: Promise<Record<string, string>>;
+  searchParams: Promise<Record<string, string>>;
+}
+
 export interface CompanyConfig {
   name: string;
   phone: string;
