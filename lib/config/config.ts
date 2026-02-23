@@ -10,7 +10,7 @@ import type {
   DemoVideoConfig,
 } from "@/types/config";
 
-const CONFIG_PATH = path.join(process.cwd(), "lib", "config.json");
+const CONFIG_PATH = path.join(process.cwd(), "lib", "config" ,"config.json");
 
 // ─── Core ─────────────────────────────────────────────────────────────────────
 
