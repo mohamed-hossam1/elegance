@@ -8,7 +8,7 @@ import type {
   Testimonial,
   ReelItem,
   DemoVideoConfig,
-} from "@/types/global";
+} from "@/types/config";
 
 const CONFIG_PATH = path.join(process.cwd(), "lib", "config.json");
 

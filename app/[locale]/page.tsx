@@ -5,7 +5,7 @@ import ProjectsSection from "@/components/landing/projects-section/ProjectsSecti
 import Reels from "@/components/landing/reels-section/Reels";
 import Reviews from "@/components/landing/Reviews/Reviews";
 import DemoVideoSection from "@/components/landing/demo-video-section/DemoVideoSection";
-import { readConfig } from "@/lib/config";
+import { readConfig } from "@/lib/config/config";
 export default function Home() {
   const config = readConfig();
   return (
