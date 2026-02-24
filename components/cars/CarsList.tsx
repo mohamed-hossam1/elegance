@@ -1,6 +1,6 @@
 import { cars } from "@/lib/data/cars";
 import type { CarFilters } from "@/types/car";
-import { filterCars, sortCars } from "@/lib/car-helpers";
+import { filterCars, sortCars } from "@/lib/helper/car-helpers";
 import { StaggerContainer } from "@/lib/animations/components";
 import CarCard from "./Carcard";
 

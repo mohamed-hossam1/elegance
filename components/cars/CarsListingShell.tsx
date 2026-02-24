@@ -1,9 +1,8 @@
 "use client";
 
 import { useMemo, useState, type ReactNode } from "react";
-import { Search, SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -21,6 +20,7 @@ import {
 import type { CarFilters } from "@/types/car";
 import { AnimatedSection, StaggerContainer } from "@/lib/animations/components";
 import { useCarsListingShellLogic } from "@/hooks/Usecarslistingshelllogic";
+import LocalSearch from "../search/LocalSearch";
 
 interface CarsListingShellProps {
   filters: CarFilters;
@@ -33,11 +33,8 @@ const CarsListingShell = ({ filters, children }: CarsListingShellProps) => {
   const {
     filterConfigs,
     handleClearFilters,
-    runSearch,
-    scheduleLiveSearch,
-    searchInputRef,
-    setQueryParams,
     updateFilter,
+    updateSort,
   } = useCarsListingShellLogic(filters);
 
   const filterContent = useMemo(
@@ -80,23 +77,7 @@ const CarsListingShell = ({ filters, children }: CarsListingShellProps) => {
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <AnimatedSection delay={0.1} className="flex max-w-md flex-1 gap-2">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors duration-300 peer-focus:text-primary" />
-              <Input
-                key={filters.search}
-                ref={searchInputRef}
-                placeholder="Search cars..."
-                defaultValue={filters.search}
-                onChange={(event) =>
-                  scheduleLiveSearch(event.currentTarget.value)
-                }
-                onKeyDown={(event) => {
-                  if (event.key !== "Enter") return;
-                  event.preventDefault();
-                  runSearch(event.currentTarget.value);
-                }}
-                className="border-primary/20 bg-secondary pl-10 peer focus:border-primary/40 transition-all duration-300"
-                maxLength={100}
-              />
+              <LocalSearch placeholder="Search cars..." />
             </div>
           </AnimatedSection>
 
@@ -137,8 +118,7 @@ const CarsListingShell = ({ filters, children }: CarsListingShellProps) => {
             <Select
               value={filters.sortBy}
               onValueChange={(value) => {
-                if (value === filters.sortBy) return;
-                setQueryParams({ sortBy: value });
+                updateSort(value);
               }}
             >
               <SelectTrigger className="w-44 border-primary/20 bg-secondary cursor-pointer hover:border-primary/40 transition-colors duration-300">

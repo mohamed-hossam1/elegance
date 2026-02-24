@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import type { Property } from "@/types/property";
 import Link from "next/link";
 import Image from "next/image";
-import { HoverScale, ScaleIn } from "@/lib/animations/components";
 
 interface PropertyCardProps {
   property: Property;

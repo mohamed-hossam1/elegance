@@ -1,7 +1,10 @@
 import { properties } from "@/lib/data/properties";
 import type { PropertyFilters } from "@/types/property";
 
-import { filterProperties, sortProperties } from "@/lib/property-helpers";
+import {
+  filterProperties,
+  sortProperties,
+} from "@/lib/helper/property-helpers";
 import PropertyCard from "./PropertyCard";
 import { StaggerContainer } from "@/lib/animations/components";
 

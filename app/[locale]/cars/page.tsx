@@ -5,7 +5,7 @@ import {
   AnimatedUnderline,
   StaggerContainer,
 } from "@/lib/animations/components";
-import { getFiltersFromSearchParams } from "@/lib/car-helpers";
+import { getFiltersFromSearchParams } from "@/lib/helper/car-helpers";
 
 interface CarsPageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

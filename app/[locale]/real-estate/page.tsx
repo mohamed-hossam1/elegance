@@ -1,7 +1,11 @@
 import PropertyList from "@/components/property/PropertyList";
 import RealEstateListingShell from "@/components/property/RealEstateListingShell";
-import { AnimatedSection, AnimatedUnderline, StaggerContainer } from "@/lib/animations/components";
-import { getFiltersFromSearchParams } from "@/lib/property-helpers";
+import {
+  AnimatedSection,
+  AnimatedUnderline,
+  StaggerContainer,
+} from "@/lib/animations/components";
+import { getFiltersFromSearchParams } from "@/lib/helper/property-helpers";
 
 interface RealEstatePageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

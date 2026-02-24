@@ -288,7 +288,7 @@ export function AnimatedUnderline({
 }: AnimatedUnderlineProps) {
   return (
     <motion.div
-      className={`absolute -bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full origin-left ${className}`}
+      className={`absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-primary/50 via-primary to-primary/50 rounded-full origin-left ${className}`}
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
       viewport={{ once: true }}

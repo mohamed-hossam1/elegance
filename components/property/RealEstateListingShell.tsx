@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
-import { Search, SlidersHorizontal } from "lucide-react";
+import { useState, type ReactNode } from "react";
+import { SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -21,6 +20,7 @@ import {
 import type { PropertyFilters } from "@/types/property";
 import { useRealEstateListingShellLogic } from "../../hooks/useRealEstateListingShellLogic";
 import { AnimatedSection, StaggerContainer } from "@/lib/animations/components";
+import LocalSearch from "../search/LocalSearch";
 
 interface RealEstateListingShellProps {
   filters: PropertyFilters;
@@ -33,73 +33,49 @@ const RealEstateListingShell = ({
 }: RealEstateListingShellProps) => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const {
-    filterConfigs,
-    handleClearFilters,
-    runSearch,
-    scheduleLiveSearch,
-    searchInputRef,
-    setQueryParams,
-    updateFilter,
-  } = useRealEstateListingShellLogic(filters);
+  const { filterConfigs, handleClearFilters, updateFilter, updateSort } =
+    useRealEstateListingShellLogic(filters);
 
-  const filterContent = useMemo(
-    () => (
-      <div className="space-y-5">
-        {filterConfigs.map((config, index) => (
-          <AnimatedSection key={config.key} delay={index * 0.05} className="mx-3">
-            <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-primary">
-              {config.label}
-            </label>
-            <Select
-              value={filters[config.key]}
-              onValueChange={(value) => updateFilter(config.key, value)}
-            >
-              <SelectTrigger className="border-primary/20 bg-secondary w-full cursor-pointer hover:border-primary/40 transition-colors duration-300">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {config.options.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {option.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </AnimatedSection>
-        ))}
-      </div>
-    ),
-    [filterConfigs, filters, updateFilter],
+  const filterContent = () => (
+    <div className="space-y-5">
+      {filterConfigs.map((config, index) => (
+        <AnimatedSection key={config.key} delay={index * 0.05} className="mx-3">
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-primary">
+            {config.label}
+          </label>
+          <Select
+            value={filters[config.key]}
+            onValueChange={(value) => updateFilter(config.key, value)}
+          >
+            <SelectTrigger className="border-primary/20 bg-secondary w-full cursor-pointer hover:border-primary/40 transition-colors duration-300">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {config.options.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </AnimatedSection>
+      ))}
+    </div>
   );
-
   return (
     <>
       <StaggerContainer className="mb-6">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <AnimatedSection delay={0.1} className="flex max-w-md flex-1 gap-2">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors duration-300 peer-focus:text-primary" />
-              <Input
-                key={filters.search}
-                ref={searchInputRef}
-                placeholder="Search properties..."
-                defaultValue={filters.search}
-                onChange={(event) =>
-                  scheduleLiveSearch(event.currentTarget.value)
-                }
-                onKeyDown={(event) => {
-                  if (event.key !== "Enter") return;
-                  event.preventDefault();
-                  runSearch(event.currentTarget.value);
-                }}
-                className="border-primary/20 bg-secondary pl-10 peer focus:border-primary/40 transition-all duration-300"
-                maxLength={100}
-              />
+              <LocalSearch placeholder="Search properties..." />
             </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.2} className="flex gap-3 justify-center items-center">
+          <AnimatedSection
+            delay={0.2}
+            className="flex gap-3 justify-center items-center"
+          >
             <Button
               type="button"
               variant="outline"
@@ -112,8 +88,8 @@ const RealEstateListingShell = ({
 
             <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button 
-                  size="sm" 
+                <Button
+                  size="sm"
                   className="gap-2 primary-gradient hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
                 >
                   <SlidersHorizontal className="h-4 w-4" /> Filters
@@ -126,15 +102,14 @@ const RealEstateListingShell = ({
                 <SheetHeader>
                   <SheetTitle className="text-foreground">Filters</SheetTitle>
                 </SheetHeader>
-                <div className="mt-6">{filterContent}</div>
+                <div className="mt-6">{filterContent()}</div>
               </SheetContent>
             </Sheet>
 
             <Select
               value={filters.sortBy}
               onValueChange={(value) => {
-                if (value === filters.sortBy) return;
-                setQueryParams({ sortBy: value });
+                updateSort(value);
               }}
             >
               <SelectTrigger className="w-44 border-primary/20 bg-secondary cursor-pointer hover:border-primary/40 transition-colors duration-300">
@@ -156,7 +131,7 @@ const RealEstateListingShell = ({
             <h3 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-primary">
               Filters
             </h3>
-            {filterContent}
+            {filterContent()}
           </div>
         </aside>
         <div className="flex-1">{children}</div>
