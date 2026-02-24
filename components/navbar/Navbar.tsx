@@ -1,14 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowDown, Menu, X } from "lucide-react";
+import {  Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import {
   Sheet,
   SheetContent,
@@ -29,11 +24,13 @@ import {
   TapScale,
 } from "@/lib/animations/components";
 import SocialIcons from "./SocialIcons";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 const navLinks = [
-  { label: "Home", href: ROUTES.LABDING_PAGE },
-  { label: "Real Estate", href: ROUTES.REAL_ESTATE },
-  { label: "Cars", href: ROUTES.CARS },
+  { label: "home", href: ROUTES.LABDING_PAGE },
+  { label: "realEstate", href: ROUTES.REAL_ESTATE },
+  { label: "cars", href: ROUTES.CARS },
 ];
 
 interface Props {
@@ -50,7 +47,7 @@ const Navbar = ({ socials }: Props) => {
   const location = usePathname();
   const [open, setOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
-  const [language, setLanguage] = useState<"English" | "Arabic">("English");
+  const t = useTranslations("nav");
 
   return (
     <header className="relative">
@@ -103,7 +100,7 @@ const Navbar = ({ socials }: Props) => {
                         : "text-muted-foreground group-hover:text-foreground"
                     }`}
                   >
-                    {link.label}
+                    {t(link.label)}
                   </span>
 
                   {isActive && (
@@ -140,26 +137,7 @@ const Navbar = ({ socials }: Props) => {
 
             <SocialIcons socials={socials} />
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  type="button"
-                  aria-label="Select language"
-                  className="inline-flex items-center gap-2 rounded-full border border-border/40 bg-background/70 px-3 py-1.5 text-xs font-semibold text-foreground/80 transition-all duration-300 hover:text-foreground hover:border-primary/50 hover:bg-primary/5"
-                >
-                  <span>{language}</span>
-                  <ArrowDown className="h-4 w-4" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-35">
-                <DropdownMenuItem onSelect={() => setLanguage("English")}>
-                  English
-                </DropdownMenuItem>
-                <DropdownMenuItem onSelect={() => setLanguage("Arabic")}>
-                  Arabic
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <LanguageSwitcher />
 
             {/* <Button
               className="primary-gradient group relative overflow-hidden shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"

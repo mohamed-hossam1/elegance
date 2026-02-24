@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Home",
+    "cars": "Cars",
+    "realEstate": "Real Estate",
+    "contact": "Contact"
+  },
+  "faq": {
+    "title": "Frequently Asked",
+    "titleHighlight": "Questions",
+    "subtitle": "Got questions? We've got answers. Find everything you need to know about our",
+    "subtitleHighlight": "premium services"
+  },
+  "reels": {
+    "title": "Featured",
+    "titleHighlight": "Reels",
+    "subtitle": "Experience luxury through our lens.",
+    "subtitleHighlight": "Premium properties and vehicles",
+    "subtitleEnd": "showcased in stunning detail."
+  },
+  "reviews": {
+    "title": "What Our",
+    "titleHighlight": "Clients",
+    "titleEnd": "Say",
+    "subtitle": "Don't just take our word for it. Hear from clients who've experienced",
+    "subtitleHighlight": "the Elegance difference",
+    "subtitleEnd": "—transforming dreams into reality, one key at a time.",
+    "categoryProperty": "Property",
+    "categoryCar": "Vehicle"
+  },
+  "howWorks": {
+    "title": "How It",
+    "titleHighlight": "Works",
+    "subtitle": "Most people think buying property or a car is complicated.",
+    "subtitleHighlight": "We made it stupid simple",
+    "subtitleEnd": "—just 4 easy steps to your dream purchase.",
+    "step1Title": "Browse & Select",
+    "step1Desc": "Explore our curated collection of properties and cars. Filter by budget, location, or features to find your perfect match.",
+    "step2Title": "Book Consultation",
+    "step2Desc": "Schedule a free call with your dedicated advisor. Get personalized recommendations tailored to your needs and preferences.",
+    "step3Title": "We Handle Everything",
+    "step3Desc": "From paperwork to financing to legal review—sit back while we do the heavy lifting. Your peace of mind is our priority.",
+    "step4Title": "Get Your Keys",
+    "step4Desc": "Move into your new home or drive away in your new car. Simple as that. Welcome to the Elegance family."
+  },
+  "cta": {
+    "title": "Ready to Experience",
+    "titleHighlight": "Luxury?",
+    "subtitle": "Don't wait. Your dream property or car is just a few clicks away. Browse our exclusive collection and start your journey to elegance today.",
+    "browseProperties": "Browse Properties",
+    "browseVehicles": "Browse Vehicles",
+    "badge1": "Free Consultation",
+    "badge2": "No Hidden Fees",
+    "badge3": "Expert Guidance"
+  },
+  "demoVideo": {
+    "title": "Demo",
+    "titleHighlight": "Video",
+    "subtitle": "A quick walkthrough of the Elegance experience, showcasing the interface and key highlights in under a minute.",
+    "noVideo": "No video available"
+  },
+  "projects": {
+    "title": "Our",
+    "titleHighlight": "Exclusive",
+    "titleEnd": "Projects",
+    "subtitle": "Discover premium properties and luxury vehicles curated for the most discerning clients.",
+    "viewAll": "View All Projects"
+  },
+  "hero": {
+    "badge": "Premium Real Estate & Luxury Cars",
+    "titleLine1": "WHERE",
+    "titleHighlight": "ELEGANCE",
+    "titleLine2": "MEETS EXCELLENCE",
+    "subtitle": "We don't just sell properties and cars — we deliver life-changing decisions with one move. Expert guidance, transparent deals, and the luxury you actually deserve.",
+    "browseRealEstate": "Browse Real Estate",
+    "browseCars": "Browse Cars",
+    "img1Alt": "Luxury Property 1",
+    "img2Alt": "Luxury Property 3",
+    "img3Alt": "Premium Car 1",
+    "img4Alt": "Luxury Property 2"
+  }
+}

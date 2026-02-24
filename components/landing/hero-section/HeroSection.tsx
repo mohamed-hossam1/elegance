@@ -16,30 +16,33 @@ import LuxuryProperty1 from "@/public/luxury_property_1.webp";
 import LuxuryProperty2 from "@/public/luxury_property_2.webp";
 import LuxuryProperty3 from "@/public/luxury_property_3.webp";
 import PremiumCar1 from "@/public/premium_car_1.webp";
+import { getTranslations } from "next-intl/server";
 
-const HeroSection = () => {
+const HeroSection = async () => {
+  const t = await getTranslations("hero");
+
   const images = [
     {
       src: LuxuryProperty1,
-      alt: "Luxury Property 1",
+      alt: t("img1Alt"),
       className: "w-full h-[150px] object-cover rounded-xl",
       translateY: "-translate-y-2",
     },
     {
       src: LuxuryProperty3,
-      alt: "Luxury Property 3",
+      alt: t("img2Alt"),
       className: "w-full h-[202px] object-cover rounded-xl",
       translateY: "translate-y-5",
     },
     {
       src: PremiumCar1,
-      alt: "Premium Car 1",
+      alt: t("img3Alt"),
       className: "w-full h-[202px] object-cover rounded-xl",
       translateY: "-translate-y-8",
     },
     {
       src: LuxuryProperty2,
-      alt: "Luxury Property 2",
+      alt: t("img4Alt"),
       className: "w-full h-[147px] object-cover rounded-xl",
       translateY: "translate-y-8",
     },
@@ -60,33 +63,31 @@ const HeroSection = () => {
               alt="logo"
               width={500}
               height={500}
-            ></Image>
+            />
 
             <AnimatedSection className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
               <Sparkles className="w-4 h-4 text-primary" />
               <p className="font-semibold uppercase tracking-[0.2em] text-primary text-[9px] md:text-xs">
-                Premium Real Estate & Luxury Cars
+                {t("badge")}
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
               <h1 className="font-display text-[34px] font-bold leading-[1.15] text-foreground md:text-5xl lg:text-6xl mb-6">
-                WHERE
+                {t("titleLine1")}
                 <span className="text-primary md:ml-3 relative inline-block">
                   {" "}
-                  ELEGANCE
+                  {t("titleHighlight")}
                   <AnimatedUnderline />
                 </span>
                 <br />
-                MEETS EXCELLENCE
+                {t("titleLine2")}
               </h1>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
               <p className="max-w-lg text-text-secondary leading-relaxed text-[14px] md:text-lg">
-                We don&apos;t just sell properties and cars — we deliver
-                life-changing decisions with one move. Expert guidance,
-                transparent deals, and the luxury you actually deserve.
+                {t("subtitle")}
               </p>
             </AnimatedSection>
 
@@ -103,14 +104,16 @@ const HeroSection = () => {
                   >
                     <div className="flex gap-2 items-center relative z-10 text-primary">
                       <Building className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-                      <span className="font-semibold">Browse Real Estate</span>
+                      <span className="font-semibold">
+                        {t("browseRealEstate")}
+                      </span>
                     </div>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 text-primary transition-transform duration-300" />
-
                     <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   </Link>
                 </Button>
               </TapScale>
+
               <TapScale>
                 <Button
                   className="group primary-gradient py-6 px-6 relative overflow-hidden shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
@@ -120,24 +123,20 @@ const HeroSection = () => {
                   <Link href={ROUTES.CARS} className="gap-2">
                     <div className="flex gap-2 items-center relative z-10">
                       <Car className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-                      <span className="font-semibold">Browse Cars</span>
+                      <span className="font-semibold">{t("browseCars")}</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
-
                     <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                   </Link>
                 </Button>
               </TapScale>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.4} className="mt-10  relative">
+            <AnimatedSection delay={0.4} className="mt-10 relative">
               <div className="h-px w-full bg-linear-to-r from-primary via-primary/50 to-transparent" />
               <motion.div
                 className="absolute top-0 left-0 h-0.75 w-20 bg-primary blur-sm"
-                animate={{
-                  x: [0, 100, 0],
-                  opacity: [0.5, 1, 0.5],
-                }}
+                animate={{ x: [0, 100, 0], opacity: [0.5, 1, 0.5] }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
@@ -172,20 +171,16 @@ const HeroSection = () => {
                       height={500}
                       className={`${image.className} transition-all duration-700 group-hover:scale-110 group-hover:rotate-1`}
                     />
-
                     <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                       <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     </div>
-
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/30 rounded-xl transition-all duration-500" />
                   </div>
                 </motion.div>
               ))}
-              <GridCircle className="-top-30 -left-20"></GridCircle>
+              <GridCircle className="-top-30 -left-20" />
             </div>
-
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 blur-3xl rounded-full -z-10" />
           </StaggerContainer>
         </div>

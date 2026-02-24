@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import ReviewCard from "./ReviewCard";
 import {
@@ -12,16 +11,19 @@ import {
   StaggerContainer,
   TapScale,
 } from "@/lib/animations/components";
-import { Testimonial } from "@/types/global";
+import { Testimonial } from "@/types/config";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Reviews({ reviews }: { reviews: Testimonial[] }) {
+  const t = useTranslations("reviews");
+  const locale = useLocale();
   const [itemsPerView, setItemsPerView] = useState(3);
 
   useEffect(() => {
     const updateItems = () => {
-      if (window.innerWidth < 768) setItemsPerView(1); // mobile
-      else if (window.innerWidth < 1024) setItemsPerView(2); // tablet
-      else setItemsPerView(3); // desktop
+      if (window.innerWidth < 768) setItemsPerView(1);
+      else if (window.innerWidth < 1024) setItemsPerView(2);
+      else setItemsPerView(3);
     };
 
     updateItems();
@@ -30,42 +32,31 @@ export default function Reviews({ reviews }: { reviews: Testimonial[] }) {
   }, []);
 
   const totalPages = Math.max(1, reviews.length - itemsPerView + 1);
-
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const safeIndex = Math.min(currentIndex, totalPages - 1);
-
   const visibleReviews = reviews.slice(safeIndex, safeIndex + itemsPerView);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalPages);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
-  };
+  const handleNext = () => setCurrentIndex((prev) => (prev + 1) % totalPages);
+  const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
 
   return (
     <section className="relative max-w-412.5 mx-auto px-4 lg:px-34.5 py-16 lg:py-24 overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 blur-3xl rounded-full -z-10" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary/3 blur-3xl rounded-full -z-10" />
+
       <StaggerContainer className="mb-12 lg:mb-16">
         <AnimatedSection className="relative inline-block">
           <h2 className="text-[27px] lg:text-5xl font-bold mb-3 relative">
-            What Our <span className="text-primary">Clients</span> Say
+            {t("title")} <span className="text-primary">{t("titleHighlight")}</span> {t("titleEnd")}
           </h2>
           <AnimatedUnderline />
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
           <p className="text-text-secondary md:text-lg mt-6 max-w-2xl">
-            Don&apos;t just take our word for it. Hear from clients who&apos;ve
-            experienced
-            <span className="text-primary font-semibold">
-              {" "}
-              the Elegance difference
-            </span>
-            —transforming dreams into reality, one key at a time.
+            {t("subtitle")}
+            <span className="text-primary font-semibold"> {t("subtitleHighlight")}</span>
+            {t("subtitleEnd")}
           </p>
         </AnimatedSection>
       </StaggerContainer>
@@ -82,7 +73,7 @@ export default function Reviews({ reviews }: { reviews: Testimonial[] }) {
         >
           {visibleReviews.map((review, index) => (
             <SlideFromRight key={`${review.name}-${safeIndex}-${index}`}>
-              <ReviewCard {...review} delay={index * 0.1} />
+              <ReviewCard {...review} delay={index * 0.1} locale={locale} />
             </SlideFromRight>
           ))}
         </div>

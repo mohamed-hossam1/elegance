@@ -6,7 +6,8 @@ import {
   StaggerContainer,
 } from "@/lib/animations/components";
 import ReelCard from "./ReelCard";
-import { ReelItem } from "@/types/global";
+import { ReelItem } from "@/types/config";
+import { useTranslations } from "next-intl";
 
 interface Props {
   reels: ReelItem[];
@@ -14,6 +15,8 @@ interface Props {
 }
 
 export default function Reels({ reels }: Props) {
+  const t = useTranslations("reels");
+
   return (
     <section className="relative max-w-412.5 mx-auto px-4 lg:px-34.5 py-20 lg:py-32 overflow-hidden">
       <div className="absolute top-1/4 left-0 w-125 h-125 bg-primary/5 blur-3xl rounded-full -z-10" />
@@ -21,19 +24,20 @@ export default function Reels({ reels }: Props) {
       <StaggerContainer className="mb-12 lg:mb-16">
         <AnimatedSection className="relative inline-block">
           <h2 className="text-[27px] lg:text-5xl font-bold mb-3 relative">
-            Featured <span className="text-primary">Reels</span>
+            {t("title")}{" "}
+            <span className="text-primary">{t("titleHighlight")}</span>
           </h2>
           <AnimatedUnderline />
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
           <p className="text-text-secondary md:text-lg mt-6 max-w-2xl">
-            Experience luxury through our lens.
+            {t("subtitle")}
             <span className="text-primary font-semibold">
               {" "}
-              Premium properties and vehicles
+              {t("subtitleHighlight")}
             </span>{" "}
-            showcased in stunning detail.
+            {t("subtitleEnd")}
           </p>
         </AnimatedSection>
       </StaggerContainer>
@@ -42,7 +46,6 @@ export default function Reels({ reels }: Props) {
         {reels.map((reel, index) => {
           const isTall = index % 3 === 0;
           const isGroupStart = index % 3 === 1;
-
           const delay = 0.1 + index * 0.05;
 
           if (isTall) {
@@ -69,7 +72,7 @@ export default function Reels({ reels }: Props) {
             );
           }
 
-          return null; // consumed by isGroupStart
+          return null;
         })}
       </div>
     </section>

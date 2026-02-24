@@ -1,10 +1,4 @@
-import {
-  ArrowRight,
-  Sparkles,
-  CheckCircle2,
-  Building,
-  Car,
-} from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, Building, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ROUTES } from "@/constants/routes";
@@ -14,8 +8,11 @@ import {
   ScaleIn,
   TapScale,
 } from "@/lib/animations/components";
+import { getTranslations } from "next-intl/server";
 
-export default function CTA() {
+export default async function CTA() {
+  const t = await getTranslations("cta");
+
   return (
     <AnimatedSection className="relative mt-20">
       <div className="relative rounded-2xl border border-primary/30 bg-linear-to-br from-card via-card/50 to-primary/5 p-8 lg:p-12 overflow-hidden">
@@ -38,13 +35,11 @@ export default function CTA() {
           </HoverScale>
 
           <h3 className="text-3xl lg:text-4xl font-bold mb-4">
-            Ready to Experience <span className="text-primary">Luxury</span>?
+            {t("title")} <span className="text-primary">{t("titleHighlight")}</span>
           </h3>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Don&apos;t wait. Your dream property or car is just a few clicks away.
-            Browse our exclusive collection and start your journey to elegance
-            today.
+            {t("subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -56,15 +51,13 @@ export default function CTA() {
               >
                 <Link href={ROUTES.REAL_ESTATE} className="gap-3">
                   <Building className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="relative z-10 font-semibold">
-                    Browse Properties
-                  </span>
+                  <span className="relative z-10 font-semibold">{t("browseProperties")}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-
                   <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </Link>
               </Button>
             </TapScale>
+
             <TapScale>
               <Button
                 className="group bg-card hover:bg-card/80 border-2 border-primary/50 hover:border-primary px-8 py-6 text-base relative overflow-hidden transition-all duration-300"
@@ -73,11 +66,8 @@ export default function CTA() {
               >
                 <Link href={ROUTES.CARS} className="gap-3">
                   <Car className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
-                  <span className="relative z-10 font-semibold text-primary">
-                    Browse Vehicles
-                  </span>
+                  <span className="relative z-10 font-semibold text-primary">{t("browseVehicles")}</span>
                   <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform duration-300" />
-
                   <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 </Link>
               </Button>
@@ -90,15 +80,15 @@ export default function CTA() {
           >
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-primary" />
-              <span>Free Consultation</span>
+              <span>{t("badge1")}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-primary" />
-              <span>No Hidden Fees</span>
+              <span>{t("badge2")}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-primary" />
-              <span>Expert Guidance</span>
+              <span>{t("badge3")}</span>
             </div>
           </ScaleIn>
         </div>
