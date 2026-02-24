@@ -1,7 +1,7 @@
 import { Play, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { HoverScale, TapScale } from "@/lib/animations/components";
-import { ReelItem } from "@/types/global";
+import { ReelItem } from "@/types/config";
 
 // ─── URL detection ────────────────────────────────────────────────────────────
 

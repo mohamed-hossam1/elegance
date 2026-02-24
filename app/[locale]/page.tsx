@@ -5,15 +5,16 @@ import ProjectsSection from "@/components/landing/projects-section/ProjectsSecti
 import Reels from "@/components/landing/reels-section/Reels";
 import Reviews from "@/components/landing/Reviews/Reviews";
 import DemoVideoSection from "@/components/landing/demo-video-section/DemoVideoSection";
-import { readConfig } from "@/lib/config/config";
-export default function Home() {
-  const config = readConfig();
+import { readConfig } from "@/lib/config";
+export default async function Home() {
+  const config = await readConfig();
+  
   return (
     <>
       <main className="min-h-screen bg-background">
         <HeroSection />
         <ProjectsSection projects={config.projects} />
-        <DemoVideoSection />
+        <DemoVideoSection thumbnailSrc="Demo.webp" />
         <HowWorks />
         <Reviews reviews={config.testimonials} />
         <FAQ faqs={config.faqs} />

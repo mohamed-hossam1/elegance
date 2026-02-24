@@ -2,17 +2,15 @@ import { SlideFromLeft } from "@/lib/animations/components";
 import { AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import * as motion from "motion/react-client";
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
+import { tHandler } from "@/lib/handlers/locale";
+import { FaqItem } from "@/types/config";
 
 interface FAQCardProps {
-  faq: FAQItem;
+  faq: FaqItem;
   index: number;
   isOpen: boolean;
   onToggle: () => void;
+  locale: string;
 }
 
 export default function FAQCard({
@@ -20,11 +18,15 @@ export default function FAQCard({
   index,
   isOpen,
   onToggle,
+  locale,
 }: FAQCardProps) {
+  const question = tHandler<FaqItem>(faq, "question", locale);
+  const answer = tHandler<FaqItem>(faq, "answer", locale);
+
   return (
-    <SlideFromLeft delay={index * 0.1} className="group relative ">
+    <SlideFromLeft delay={index * 0.1} className="group relative">
       <div
-        className={`rounded-2xl border overflow-hidden transition-all duration-500  ${
+        className={`rounded-2xl border overflow-hidden transition-all duration-500 ${
           isOpen
             ? "border-primary bg-linear-to-br from-card to-primary/5 shadow-xl shadow-primary/10"
             : "border-primary/30 bg-card/50 hover:border-primary/50"
@@ -47,7 +49,7 @@ export default function FAQCard({
                 : "text-foreground group-hover:text-primary"
             }`}
           >
-            {faq.question}
+            {question}
           </span>
 
           <motion.div
@@ -93,14 +95,13 @@ export default function FAQCard({
             >
               <div className="px-6 lg:px-8 pb-6 lg:pb-8">
                 <div className="h-px bg-linear-to-r from-transparent via-primary/50 to-transparent mb-6" />
-
                 <motion.p
                   initial={{ y: -10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.4 }}
                   className="text-muted-foreground leading-relaxed text-base lg:text-lg"
                 >
-                  {faq.answer}
+                  {answer}
                 </motion.p>
               </div>
             </motion.div>

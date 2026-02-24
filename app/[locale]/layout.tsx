@@ -3,11 +3,11 @@ import { ThemeProvider } from "@/lib/providers/theme-provider";
 import Navbar from "@/components/navbar/Navbar";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
-import { readConfig } from "@/lib/config/config";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
+import { readConfig } from "@/lib/config";
 
 interface Props {
   children: React.ReactNode;
@@ -18,8 +18,8 @@ export default async function RootLayout({
   children,
   params,
 }: Readonly<Props>) {
-  const session = await auth();
-  const config = readConfig();
+  const [session, config] = await Promise.all([auth(), readConfig()]);
+
   const { locale } = await params;
 
   if (!routing.locales.includes(locale as "en" | "ar")) notFound();
