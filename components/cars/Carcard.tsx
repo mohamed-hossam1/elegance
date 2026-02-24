@@ -21,9 +21,9 @@ export default function CarCard({ car, delay = 0 }: CarCardProps) {
     <div className="group relative h-full overflow-hidden rounded-2xl border border-primary/10 bg-card transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+      <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-4/3 overflow-hidden">
         <Image
           src={car.image}
           alt={car.title}
@@ -31,7 +31,7 @@ export default function CarCard({ car, delay = 0 }: CarCardProps) {
           className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
         <div className="absolute left-3 top-3 flex gap-2 z-10">
           <span className="rounded-lg bg-primary/90 backdrop-blur-sm px-3 py-1.5 text-xs font-semibold text-primary-foreground capitalize border border-primary/20">
@@ -83,7 +83,7 @@ export default function CarCard({ car, delay = 0 }: CarCardProps) {
           </div>
         </div>
 
-        <div className="h-[2px] bg-gradient-to-r from-primary via-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left mb-4" />
+        <div className="h-0.5 bg-linear-to-r from-primary via-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left mb-4" />
 
         <Button
           className="w-full bg-card hover:bg-primary/10 text-foreground hover:text-primary border-primary/50 hover:border-primary border relative overflow-hidden group/btn"
@@ -91,7 +91,7 @@ export default function CarCard({ car, delay = 0 }: CarCardProps) {
         >
           <Link href={`/cars/${car.id}`} className="relative z-10">
             <span>View Details</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
           </Link>
         </Button>
       </div>

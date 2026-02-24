@@ -7,6 +7,12 @@ import { carBrands } from "@/lib/data/cars";
 
 type FilterKey = Exclude<keyof CarFilters, "search" | "sortBy">;
 
+interface FilterConfig {
+  key: FilterKey;
+  label: string;
+  options: { label: string; value: string }[];
+}
+
 export const useCarsListingShellLogic = (filters: CarFilters) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -67,7 +73,7 @@ export const useCarsListingShellLogic = (filters: CarFilters) => {
     );
   };
 
-  const filterConfigs = [
+  const filterConfigs: FilterConfig[] = [
     {
       key: "brand",
       label: "Brand",

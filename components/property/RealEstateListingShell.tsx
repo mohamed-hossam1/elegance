@@ -44,7 +44,7 @@ const RealEstateListingShell = ({
             {config.label}
           </label>
           <Select
-            value={filters[config.key]}
+            value={filters[config.key as keyof PropertyFilters]}
             onValueChange={(value) => updateFilter(config.key, value)}
           >
             <SelectTrigger className="border-primary/20 bg-secondary w-full cursor-pointer hover:border-primary/40 transition-colors duration-300">

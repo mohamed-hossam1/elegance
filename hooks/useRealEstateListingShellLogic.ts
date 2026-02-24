@@ -1,11 +1,18 @@
 "use client";
 
+import { useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { formUrlQuery, removeKeysFromUrlQuery } from "@/lib/urls";
 import type { PropertyFilters } from "@/types/property";
 import { propertyLocations } from "@/lib/data/properties";
 
 type FilterKey = Exclude<keyof PropertyFilters, "search" | "sortBy">;
+
+interface FilterConfig {
+  key: FilterKey;
+  label: string;
+  options: { label: string; value: string }[];
+}
 
 export const useRealEstateListingShellLogic = (filters: PropertyFilters) => {
   const router = useRouter();
@@ -68,7 +75,7 @@ export const useRealEstateListingShellLogic = (filters: PropertyFilters) => {
     );
   };
 
-  const filterConfigs = [
+  const filterConfigs: FilterConfig[] = [
     {
       key: "location",
       label: "Location",
